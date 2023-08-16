@@ -1,0 +1,20 @@
+@mixin flexbox ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin imagenes ($width, $height, $object) {
+    width: $width;
+    height: $height;
+    object-fit: $object;
+}
+
+@mixin titulos ($color, $size, $align, $transform, $spacing) {
+    color: $color;
+    font-size: $size;
+    text-align: $align;
+    text-transform: $transform;
+    letter-spacing: $spacing;
+}

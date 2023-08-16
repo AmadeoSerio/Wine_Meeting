@@ -1,0 +1,16 @@
+.footer {
+    margin-top: auto;
+    ul{
+        li{
+           a{
+            color: #198754;
+            &:hover {
+                color: white;
+            }
+           }
+        }
+    }
+    p{
+        color: #198754;
+    }
+}
