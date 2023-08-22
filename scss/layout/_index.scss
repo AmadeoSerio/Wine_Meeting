@@ -26,7 +26,7 @@ main {
         height: 25rem;
         justify-content: space-between;
         border-radius: 3%;
-        transition: .5s;
+        transition: .8s;
         
         &:hover{
             background-color: #383b3d;
@@ -49,6 +49,46 @@ main {
         img {
             @include imagenes (15rem, 15rem, cover);
             align-self: center;
+        }
+    }
+    .carritoVacio{
+        margin-top: 5rem;
+        color: white;
+    }
+    .carritoLleno{
+        .cartas {
+            @include flexbox (column, center, flex-start);
+            padding: 1rem;
+            background-color: #05121b;
+            margin-bottom: 1rem;
+            width: 18rem;
+            height: 25rem;
+            justify-content: space-between;
+            border-radius: 3%;
+            transition: .8s;
+            
+            &:hover{
+                background-color: #383b3d;
+                transform: scale(1.02);
+                cursor: pointer;
+            }
+    
+            h2 {
+                @include titulos (white, 1.3rem, left, none, 0);
+            }
+    
+            h3 {
+                @include titulos(grey, 1rem, left, none, 0);
+            }
+    
+            p {
+                @include titulos (white, 1rem, left, none, .2rem);
+            }
+    
+            img {
+                @include imagenes (15rem, 15rem, cover);
+                align-self: center;
+            }
         }
     }
 }
