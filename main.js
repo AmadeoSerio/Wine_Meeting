@@ -42,7 +42,8 @@ const agregarCarrito = (id) => {
     Precio ${vino.precio}
     `;
     alert(mensaje);
-    carrito.push(vino); 
+    carrito.push(vino);
+    console.log(carrito);
 };
 //
 
@@ -58,7 +59,7 @@ vinos.forEach((item) => {
     <button id="boton${item.id}">Agregar al carrito</button>
     `;
     cartas.append(div);
-
+    
     let boton = document.getElementById(`boton${item.id}`);
     boton.addEventListener("click", () => agregarCarrito(item.id))
 });
@@ -68,7 +69,7 @@ vinos.forEach((item) => {
 let carritoStorage = sessionStorage.getItem("carrito");
 
 if (carritoStorage) {
-    carrito = JSON.parse(carritoStorage);
+    carritoSave = JSON.parse(carritoStorage);
 }else{
     let div = document.createElement("div");
     div.className = "carritoVacio";
@@ -89,7 +90,6 @@ carrito.forEach(item => {
     <h2>${item.nombre}</h2>
     <h3>${item.varietal}</h3>
     <p>$${item.precio}</p>
-    <img src="https://santicheese.com/cdn/shop/products/COLECCION-CABERNET-MALBEC-LARGE_1024x.jpg?v=1544528772">
     `;
     // button.innerHTML = `
     // "vaciar carrito"
