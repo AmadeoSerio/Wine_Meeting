@@ -51,11 +51,13 @@ main {
             align-self: center;
         }
     }
+
+
     .carritoVacio{
         margin-top: 5rem;
         color: white;
     }
-    .carritoLleno{
+    .carritoLlenoC{
         .cartas {
             @include flexbox (column, center, flex-start);
             padding: 1rem;
@@ -90,5 +92,12 @@ main {
                 align-self: center;
             }
         }
+    }
+    .carrito{
+        background-color: #3285bd;
+        margin: 1rem;
+        border-radius: 3%;
+        width: 100%;
+        height: auto;
     }
 }

@@ -155,5 +155,12 @@ main .carritoLleno .cartas img {
   object-fit: cover;
   align-self: center;
 }
+main .carrito {
+  background-color: #3285bd;
+  margin: 1rem;
+  border-radius: 3%;
+  width: 100%;
+  height: auto;
+}
 
 /*# sourceMappingURL=style.css.map */

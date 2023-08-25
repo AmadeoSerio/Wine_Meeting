@@ -1,4 +1,6 @@
 let cartas = document.getElementById("cartas");
+let carritoLleno = document.getElementById("carritoLlenoDiv");
+let carritoStorage = sessionStorage.getItem("carrito");
 
 //Clase constructora para las cartas del index
 class Cards {
@@ -9,11 +11,12 @@ class Cards {
         this.precio = precio;
         this.ocupado = false;
     }
-
+    
     fechaOcupada() {
         this.ocupado = true;
     }
-}
+};
+
 
 //Arreglos para la creación de cada uno de los vinos
 const vinos = [];
@@ -33,7 +36,8 @@ vinos.push(new Cards(12, "Vietti Barbera d’Asti Tre Vigne", "Malbec", 18000));
 
 const carrito = [];
 
-//
+// Función para agregar al carrito
+
 const agregarCarrito = (id) => {
     let vino = vinos.find((item) => item.id === id);
     let mensaje = `
@@ -43,9 +47,49 @@ const agregarCarrito = (id) => {
     `;
     alert(mensaje);
     carrito.push(vino);
-    console.log(carrito);
+    mostrarCarrito();
 };
 //
+
+//Condicional para que aparezca el carrito
+if (carritoStorage) {
+    carritoSave = JSON.parse(carritoStorage);
+    mostrarCarrito();
+} else {
+    let div = document.createElement("div");
+    div.className = "carritoVacio";
+    div.innerHTML = `
+        <h1>Carrito vacío</h1>
+        `;
+
+    carritoVacio.append(div)
+};
+
+//Función que muestra lo que se agrega al carrito
+function mostrarCarrito() {
+    carritoLleno.innerHTML = ""
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+    carrito.forEach(item => {
+        let div = document.createElement("div");
+        let button = document.createElement("button");
+        div.className = "carritoLlenoC";
+        div.innerHTML = `
+        <h2>${item.nombre}</h2>
+        <h3>${item.varietal}</h3>
+        <p>$${item.precio}</p>
+        `;
+        button.innerHTML = `
+        "vaciar carrito"
+        `;
+        button.addEventListener("click", () => {
+            sessionStorage.clear();
+            location.reload();
+        })
+        carritoLleno.append(div);
+        carritoLleno.append(button);
+    })
+};
+
 
 //Características e información que aparece en cada una de las cartas
 vinos.forEach((item) => {
@@ -66,38 +110,3 @@ vinos.forEach((item) => {
 
 
 
-let carritoStorage = sessionStorage.getItem("carrito");
-
-if (carritoStorage) {
-    carritoSave = JSON.parse(carritoStorage);
-}else{
-    let div = document.createElement("div");
-    div.className = "carritoVacio";
-    div.innerHTML = `
-    <h1>Carrito vacío</h1>
-    `;
-
-    carritoVacio.append(div)
-}
-
-sessionStorage.setItem("carrito", JSON.stringify(carrito));
-
-carrito.forEach(item => {
-    let div = document.createElement("div");
-    // let button = document.createElement("button");
-    div.className = "carritoLleno";
-    div.innerHTML = `
-    <h2>${item.nombre}</h2>
-    <h3>${item.varietal}</h3>
-    <p>$${item.precio}</p>
-    `;
-    // button.innerHTML = `
-    // "vaciar carrito"
-    // `;
-    // button.addEventListener("click", () => {
-        // sessionStorage.clear();
-        // location.reload();
-    // })
-    carritoLleno.append(div);
-    // carritoLleno.append(button);
-});
