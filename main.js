@@ -1,3 +1,4 @@
+//Variables establecidas
 let cartas = document.getElementById("cartas");
 let carritoLleno = document.getElementById("carritoLlenoDiv");
 let carritoStorage = sessionStorage.getItem("carrito");
@@ -9,14 +10,13 @@ class Cards {
         this.nombre = nombre;
         this.varietal = varietal;
         this.precio = precio;
-        this.ocupado = false;
+        this.vendido = false;
     }
-    
-    fechaOcupada() {
-        this.ocupado = true;
+
+    vendido() {
+        this.vendido = true;
     }
 };
-
 
 //Arreglos para la creación de cada uno de los vinos
 const vinos = [];
@@ -34,41 +34,41 @@ vinos.push(new Cards(10, "Trimbach Riesling Alsace", "Malbec", 18000));
 vinos.push(new Cards(11, "Boscarelli Vino Nobile di Montepulciano", "Malbec", 18000));
 vinos.push(new Cards(12, "Vietti Barbera d’Asti Tre Vigne", "Malbec", 18000));
 
-const carrito = [];
+//Variable del carrito
+let carrito = [];
 
 // Función para agregar al carrito
-
 const agregarCarrito = (id) => {
     let vino = vinos.find((item) => item.id === id);
-    let mensaje = `
-    Agregaste al carrito el producto:
-    ${vino.nombre}
-    Precio ${vino.precio}
-    `;
-    alert(mensaje);
+    Swal.fire({
+        title: "Agregaste al carrito el producto:",
+        text: `${vino.nombre}.`,
+        imageUrl: "https://santicheese.com/cdn/shop/products/COLECCION-CABERNET-MALBEC-LARGE_1024x.jpg?v=1544528772",
+        imageWidth: 400,
+        imageHeight: 400,
+        imageAlt: "Custom image",
+        timer: 3000,
+    });
     carrito.push(vino);
-    mostrarCarrito();
+    agregarAlCarrito();
+    carrito.length != 0 && carritoLlenoAparece();
 };
-//
 
-//Condicional para que aparezca el carrito
-if (carritoStorage) {
-    carritoSave = JSON.parse(carritoStorage);
-    mostrarCarrito();
-} else {
-    let div = document.createElement("div");
-    div.className = "carritoVacio";
-    div.innerHTML = `
+//Función que hace que aparezca el DIV del carrito vacío
+function carritoVacioAparece() {
+    if (carrito.length === 0) {
+        let div = document.createElement("div");
+        div.className = "carritoVacio";
+        div.innerHTML = `
         <h1>Carrito vacío</h1>
         `;
 
-    carritoVacio.append(div)
-};
+        carritoVacio.append(div)
+    }
+}
 
-//Función que muestra lo que se agrega al carrito
-function mostrarCarrito() {
-    carritoLleno.innerHTML = ""
-    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+//Función que hace que aparezca el DIV del carrito lleno
+function carritoLlenoAparece() {
     carrito.forEach(item => {
         let div = document.createElement("div");
         let button = document.createElement("button");
@@ -90,6 +90,25 @@ function mostrarCarrito() {
     })
 };
 
+///////////////////////////////////////////////////////////
+//Función que carga o no el carrito cuando inicia la página
+if (carritoStorage) {
+    carrito = JSON.parse(carritoStorage);
+    carritoLlenoAparece();
+} else {
+    carritoVacioAparece();
+};
+
+console.log(carrito.length);
+console.log(carritoStorage);
+
+
+//Función que agrega al sessionStorage
+function agregarAlCarrito() {
+    carritoLleno.innerHTML = "";
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
 
 //Características e información que aparece en cada una de las cartas
 vinos.forEach((item) => {
@@ -103,7 +122,7 @@ vinos.forEach((item) => {
     <button id="boton${item.id}">Agregar al carrito</button>
     `;
     cartas.append(div);
-    
+
     let boton = document.getElementById(`boton${item.id}`);
     boton.addEventListener("click", () => agregarCarrito(item.id))
 });
