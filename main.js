@@ -48,7 +48,7 @@ const agregarCarrito = (id) => {
     Swal.fire({
         background: "#44021b",
         title: "Agregaste al carrito el producto:",
-        text: `${vino.nombre}.,
+        text: `${vino.nombre}.
               $${vino.precio}.`,
         imageUrl: "https://santicheese.com/cdn/shop/products/COLECCION-CABERNET-MALBEC-LARGE_1024x.jpg?v=1544528772",
         imageAlt: "botella de vino",
@@ -68,7 +68,7 @@ const agregarCarrito = (id) => {
 
 //Función que hace que aparezca el DIV del carrito vacío
 function carritoVacioAparece() {
-    if (carrito.length === 0) {
+    // if (carrito.length === 0) {
         let div = document.createElement("div");
         div.className = "carritoVacio container";
         div.innerHTML = `
@@ -77,7 +77,7 @@ function carritoVacioAparece() {
         `;
 
         carritoVacio.append(div)
-    }
+    // }
 }
 
 
@@ -107,8 +107,28 @@ function carritoLlenoAparece() {
     Vaciar carrito <i class="fa-solid fa-trash"></i>
     `;
     button.addEventListener("click", () => {
-        sessionStorage.clear();
-        location.reload();
+        Swal.fire({
+            title: '¿Estás seguro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, vacialo!',
+            cancelButtonText: 'Cancelar',
+            background: "#44021b",
+            color: "#eeee",
+            confirmButtonColor: "#05121b",    
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            sessionStorage.clear();
+            location.reload();
+            }
+          })
     })
     carritoLleno.append(button);
 };
