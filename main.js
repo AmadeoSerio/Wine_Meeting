@@ -2,6 +2,7 @@
 let cartas = document.getElementById("cartas");
 let carritoLleno = document.getElementById("carritoLlenoDiv");
 let carritoStorage = sessionStorage.getItem("carrito");
+let carritoVacio = document.getElementById("carritoVacio");
 
 
 //Clase constructora para las cartas del index
@@ -60,24 +61,26 @@ const agregarCarrito = (id) => {
         timerProgressBar: true,
         confirmButtonColor: "#05121b",
     });
+
     carrito.push(vino);
     agregarAlCarrito();
     carrito.length != 0 && carritoLlenoAparece();
+    carritoVacio.innerHTML = "";
 };
 
 
 //Función que hace que aparezca el DIV del carrito vacío
 function carritoVacioAparece() {
-    // if (carrito.length === 0) {
+    if (carrito.length === 0) {
         let div = document.createElement("div");
         div.className = "carritoVacio container";
         div.innerHTML = `
         <i class="fa-solid fa-cart-shopping"></i>
         <h1>Carrito vacío</h1>
         `;
-
+        
         carritoVacio.append(div)
-    // }
+    }
 }
 
 
@@ -101,12 +104,56 @@ function carritoLlenoAparece() {
         `;
         carritoLleno.append(div);
     });
-    //Boton que se crea para vaciar el carrito
-    let button = document.createElement("button");
-    button.innerHTML = `
+    
+    crearBotones();
+};
+
+
+//Función que agrega al sessionStorage
+function agregarAlCarrito() {
+    carritoLleno.innerHTML = "";
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
+
+//Botones que se crean para vaciar el carrito y comprar
+function crearBotones() {
+    let divBotones = document.createElement("div");
+    divBotones.className = "botonesDiv";
+    divBotones.innerHTML = "";
+    
+    carritoLleno.append(divBotones);
+
+    let botonComprar = document.createElement("button");
+    botonComprar.className = "botonComprar";
+    botonComprar.innerHTML = `
+    Comprar <i class="fa-regular fa-credit-card"></i>
+    `;
+    botonComprar.addEventListener("click", () => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si!',
+            cancelButtonText: 'Cancelar',
+            background: "#44021b",
+            color: "#eeee",
+            confirmButtonColor: "#05121b",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                /////////////////////////////////FUNCION DE COMPRA
+                console.log(vinos);
+            }
+        })
+    });
+
+    let botonVaciar = document.createElement("button");
+    botonVaciar.className = "botonVaciar";
+    botonVaciar.innerHTML = `
     Vaciar carrito <i class="fa-solid fa-trash"></i>
     `;
-    button.addEventListener("click", () => {
+    botonVaciar.addEventListener("click", () => {
         Swal.fire({
             title: '¿Estás seguro?',
             icon: 'warning',
@@ -117,39 +164,25 @@ function carritoLlenoAparece() {
             cancelButtonText: 'Cancelar',
             background: "#44021b",
             color: "#eeee",
-            confirmButtonColor: "#05121b",    
-          }).then((result) => {
+            confirmButtonColor: "#05121b",
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-            sessionStorage.clear();
-            location.reload();
+                sessionStorage.clear();
+                location.reload();
             }
-          })
-    })
-    carritoLleno.append(button);
+        })
+    });
+    divBotones.append(botonComprar);
+    divBotones.append(botonVaciar);
 };
 
-///////////////////////////////////////////////////////////
+
 //Condición que carga o no el carrito cuando inicia la página
 if (carritoStorage) {
     carrito = JSON.parse(carritoStorage);
     carritoLlenoAparece();
 } else {
     carritoVacioAparece();
-};
-
-console.log(carrito.length);//////////////////////
-console.log(carritoStorage);//////////////////////
-
-
-//Función que agrega al sessionStorage
-function agregarAlCarrito() {
-    carritoLleno.innerHTML = "";
-    sessionStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 

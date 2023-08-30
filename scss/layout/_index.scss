@@ -29,7 +29,7 @@ main {
         transition: .6s;
 
         &:hover {
-            background-color: #44021b;
+            background-color: #680229;
             transform: scale(.98);
         }
 
@@ -78,15 +78,20 @@ main {
 
 
     .carritoVacio {
-        @include flexbox (row, center, center);
+        @include flexbox (row, center, baseline);
         gap: 1rem;
-        margin-top: 3rem;
+        margin-top:3rem;
         margin-bottom: 2rem;
-        color: white;
         background-color: #544c71;
         border-radius: 2rem;
         padding: 1rem;
         box-shadow: 9px 11px 30px rgb(0, 0, 0);
+        color: #680229;
+
+        h1{
+            font-weight: bolder;
+            font-size: 2.5rem;
+        }
 
         i {
             font-size: 3rem;
@@ -127,8 +132,15 @@ main {
         background-color: #544c71;
         border-radius: 2rem;
         box-shadow: 9px 11px 30px rgb(0, 0, 0);
+        margin-top: 3rem;
 
-        button {
+        .botonesDiv{
+            align-self: flex-end;
+
+        .botonComprar {
+            align-self: flex-end;
+            position: static;
+            margin-left: 2rem;
             margin-right: 2rem;
             margin-bottom: 2rem;
             margin-top: 2rem;
@@ -137,7 +149,28 @@ main {
             border: 0;
             border-radius: 2rem;
             width: 10rem;
+            font-weight: bolder;
+            transition: .8s;
+            box-shadow: 5px 5px 10px rgb(0, 0, 0);
+            background-color: #198754;
+
+
+            &:hover {
+                transform: scale(.96);
+            }
+        }
+
+        .botonVaciar {
             align-self: flex-end;
+            position: static;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+            border: 0;
+            border-radius: 2rem;
+            width: 10rem;
             font-weight: bolder;
             transition: .8s;
             box-shadow: 5px 5px 10px rgb(0, 0, 0);
@@ -146,15 +179,22 @@ main {
                 transform: scale(.96);
             }
         }
+    }
 
         .carritoTitulo {
-            @include flexbox (row, center, center);
+            @include flexbox (row, center, baseline);
             gap: 1rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: white;
+            padding: 0rem;
+            margin-top: 1rem;
+            margin-bottom: .5rem;
+            color: #198754;
             background-color: #544c71;
             border-radius: 2rem;
+
+            h1{
+                font-weight: bolder;
+                font-size: 2.5rem;
+            }
 
             i {
                 font-size: 3rem;
