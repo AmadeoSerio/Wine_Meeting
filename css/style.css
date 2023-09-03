@@ -17,9 +17,91 @@ body {
   background-color: #151e24;
 }
 
+@keyframes logoCarritoLleno {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
 .navbar {
   background: #44021b;
   box-shadow: 9px 11px 30px rgb(0, 0, 0);
+}
+.navbar .btnVacio button {
+  color: white;
+  background-color: gray;
+  border: 0;
+}
+.navbar .btnLleno button {
+  color: white;
+  background-color: green;
+  border: 0;
+  animation: logoCarritoLleno 1s infinite linear;
+}
+
+.offcanvas {
+  background: #630229;
+}
+.offcanvas .offcanvas-header h5 {
+  color: white;
+  font-size: 2rem;
+}
+.offcanvas .carritoLlenoC {
+  background-color: rgba(68, 2, 27, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+.offcanvas .carritoLlenoC h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.offcanvas .carritoLlenoC h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #05121b;
+  font-weight: bold;
+}
+.offcanvas .carritoLlenoC p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.offcanvas .botonComprar {
+  margin-right: 1rem;
+  margin-top: 1rem;
+  height: 2rem;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 2rem;
+  width: 9rem;
+  font-weight: bolder;
+  transition: 0.8s;
+  background-color: #198754;
+}
+.offcanvas .botonComprar:hover {
+  transform: scale(0.96);
+}
+.offcanvas .botonVaciar {
+  margin-top: 1rem;
+  height: 2rem;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 2rem;
+  width: 9rem;
+  font-weight: bolder;
+  transition: 0.8s;
+  background-color: #c0c0c0;
+}
+.offcanvas .botonVaciar:hover {
+  transform: scale(0.96);
 }
 
 .footer {
@@ -121,125 +203,6 @@ main .cartas i {
   background-color: rgba(17, 62, 94, 0);
   color: rgba(238, 238, 238, 0.9333333333);
   font-size: 1.8rem;
-}
-main .carritoVacio {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-  gap: 1rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  background-color: #544c71;
-  border-radius: 2rem;
-  padding: 1rem;
-  box-shadow: 9px 11px 30px rgb(0, 0, 0);
-  color: #680229;
-}
-main .carritoVacio h1 {
-  font-weight: bolder;
-  font-size: 2.5rem;
-}
-main .carritoVacio i {
-  font-size: 3rem;
-}
-main .carritoLlenoC {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  color: white;
-  background-color: #544c71;
-  border-radius: 2rem;
-  margin-left: 2rem;
-  padding-top: 1rem;
-}
-main .carritoLlenoC h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0;
-}
-main .carritoLlenoC h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0;
-  color: #05121b;
-  font-weight: bold;
-}
-main .carritoLlenoC p {
-  font-size: 1.2rem;
-  margin-bottom: 0;
-}
-main .carrito {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  background-color: #544c71;
-  border-radius: 2rem;
-  box-shadow: 9px 11px 30px rgb(0, 0, 0);
-  margin-top: 3rem;
-}
-main .carrito .botonesDiv {
-  align-self: flex-end;
-}
-main .carrito .botonesDiv .botonComprar {
-  align-self: flex-end;
-  position: static;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  height: 2rem;
-  font-size: 1rem;
-  border: 0;
-  border-radius: 2rem;
-  width: 10rem;
-  font-weight: bolder;
-  transition: 0.8s;
-  box-shadow: 5px 5px 10px rgb(0, 0, 0);
-  background-color: #198754;
-}
-main .carrito .botonesDiv .botonComprar:hover {
-  transform: scale(0.96);
-}
-main .carrito .botonesDiv .botonVaciar {
-  align-self: flex-end;
-  position: static;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  height: 2rem;
-  font-size: 1rem;
-  border: 0;
-  border-radius: 2rem;
-  width: 10rem;
-  font-weight: bolder;
-  transition: 0.8s;
-  box-shadow: 5px 5px 10px rgb(0, 0, 0);
-}
-main .carrito .botonesDiv .botonVaciar:hover {
-  transform: scale(0.96);
-}
-main .carrito .carritoTitulo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  color: #198754;
-  background-color: #544c71;
-  border-radius: 2rem;
-}
-main .carrito .carritoTitulo h1 {
-  font-weight: bolder;
-  font-size: 2.5rem;
-}
-main .carrito .carritoTitulo i {
-  font-size: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */

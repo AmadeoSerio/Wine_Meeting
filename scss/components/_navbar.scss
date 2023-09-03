@@ -1,4 +1,89 @@
 .navbar {
     background: #44021b;
     box-shadow: 9px 11px 30px rgb(0, 0, 0);
+
+    .btnVacio {
+        button {
+            color: white;
+            background-color: gray;
+            border: 0;
+        }
+    }
+
+    .btnLleno {
+        button {
+            color: white;
+            background-color: green;
+            border: 0;
+            animation: logoCarritoLleno 1s infinite linear;
+        }
+    }
+}
+
+.offcanvas{
+    background: #630229;
+    .offcanvas-header{
+        h5{
+            color: white;
+            font-size: 2rem;
+        }
+    }
+
+    .carritoLlenoC {
+        background-color: #44021b00;
+
+        @include flexbox (row, center, center);
+        gap: 1rem;
+        color: white;
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #05121b;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .botonComprar {
+        margin-right: 1rem;
+        margin-top: 1rem;
+        height: 2rem;
+        font-size: 1rem;
+        border: 0;
+        border-radius: 2rem;
+        width: 9rem;
+        font-weight: bolder;
+        transition: .8s;
+        background-color: #198754;
+
+        &:hover {
+            transform: scale(.96);
+        }
+    }
+
+    .botonVaciar {
+        margin-top: 1rem;
+        height: 2rem;
+        font-size: 1rem;
+        border: 0;
+        border-radius: 2rem;
+        width: 9rem;
+        font-weight: bolder;
+        transition: .8s;
+        background-color: #c0c0c0;
+
+        &:hover {
+            transform: scale(.96);
+        }
+    }
 }

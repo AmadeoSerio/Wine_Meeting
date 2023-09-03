@@ -3,6 +3,8 @@ let cartas = document.getElementById("cartas");
 let carritoLleno = document.getElementById("carritoLlenoDiv");
 let carritoStorage = sessionStorage.getItem("carrito");
 let carritoVacio = document.getElementById("carritoVacio");
+let botonCarritoCanvasVacio = document.getElementById("botonCarritoCanvasDivVacio");
+let botonCarritoCanvasLleno = document.getElementById("botonCarritoCanvasDivLleno");
 
 
 //Clase constructora para las cartas del index
@@ -60,12 +62,15 @@ const agregarCarrito = (id) => {
         color: "#eeee",
         timerProgressBar: true,
         confirmButtonColor: "#05121b",
+
     });
 
     carrito.push(vino);
     agregarAlCarrito();
+    botonCarritoLlenoCanvas();
     carrito.length != 0 && carritoLlenoAparece();
     carritoVacio.innerHTML = "";
+    botonCarritoCanvasVacio.innerHTML = "";
 };
 
 
@@ -75,11 +80,18 @@ function carritoVacioAparece() {
         let div = document.createElement("div");
         div.className = "carritoVacio container";
         div.innerHTML = `
-        <i class="fa-solid fa-cart-shopping"></i>
-        <h1>Carrito vacío</h1>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> <i class="fa-solid fa-cart-shopping"></i> Carrito vacío</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+        </div>
+      </div>
         `;
-        
-        carritoVacio.append(div)
+
+        carritoVacio.append(div);
+        botonCarritoVacioCanvas();
     }
 }
 
@@ -87,12 +99,19 @@ function carritoVacioAparece() {
 //Función que hace que aparezca el DIV del carrito lleno
 function carritoLlenoAparece() {
     let div = document.createElement("div");
-    div.className = "carritoTitulo container";
     div.innerHTML = `
-    <i class="fa-solid fa-cart-shopping"></i>
-    <h1>Carrito</h1>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> <i class="fa-solid fa-cart-shopping"></i> Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div id="carritoCanvas" class="offcanvas-body">
+      </div>
+    </div>
+
     `;
     carritoLleno.append(div);
+
     carrito.forEach(item => {
         let div = document.createElement("div");
         div.className = "carritoLlenoC";
@@ -102,16 +121,38 @@ function carritoLlenoAparece() {
         <p>$${item.precio}</p>
         <hr/>
         `;
-        carritoLleno.append(div);
+        carritoCanvas.append(div);
     });
-    
     crearBotones();
+};
+
+
+//Función que crea el ícono del carrito vacío
+function botonCarritoVacioCanvas() {
+    let carritoCanvasVacio = document.createElement("div");
+    carritoCanvasVacio.className = "carritoTitulo container";
+    carritoCanvasVacio.innerHTML = `
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> <i class="fa-solid fa-cart-shopping"></i> </button>
+`
+    botonCarritoCanvasVacio.append(carritoCanvasVacio);
+};
+
+
+//Función que crea el ícono del carrito lleno
+function botonCarritoLlenoCanvas() {
+    let carritoCanvasLleno = document.createElement("div");
+    carritoCanvasLleno.className = "carritoTitulo container";
+    carritoCanvasLleno.innerHTML = `
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> <i class="fa-solid fa-cart-shopping"></i> </button>
+`
+    botonCarritoCanvasLleno.append(carritoCanvasLleno);
 };
 
 
 //Función que agrega al sessionStorage
 function agregarAlCarrito() {
     carritoLleno.innerHTML = "";
+    botonCarritoCanvasLleno.innerHTML = "";
     sessionStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
@@ -121,7 +162,7 @@ function crearBotones() {
     let divBotones = document.createElement("div");
     divBotones.className = "botonesDiv";
     divBotones.innerHTML = "";
-    
+
     carritoLleno.append(divBotones);
 
     let botonComprar = document.createElement("button");
@@ -142,8 +183,8 @@ function crearBotones() {
             confirmButtonColor: "#05121b",
         }).then((result) => {
             if (result.isConfirmed) {
-                /////////////////////////////////FUNCION DE COMPRA
-                console.log(vinos);
+                sessionStorage.clear();
+                location.reload();
             }
         })
     });
@@ -167,13 +208,34 @@ function crearBotones() {
             confirmButtonColor: "#05121b",
         }).then((result) => {
             if (result.isConfirmed) {
-                sessionStorage.clear();
-                location.reload();
+                Swal.fire({
+                    title: 'Vaciando',
+                    html: 'Esta ventana se cierra en <b></b> milisegundos.',
+                    background: "#44021b",
+                    color: "#eeee",        
+                    timer: 1000,
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                });
+                setTimeout(() => {
+                    sessionStorage.clear();
+                    location.reload();
+                }, 1000);
             }
         })
     });
-    divBotones.append(botonComprar);
-    divBotones.append(botonVaciar);
+    carritoCanvas.append(botonComprar);
+    carritoCanvas.append(botonVaciar);
 };
 
 
@@ -181,6 +243,7 @@ function crearBotones() {
 if (carritoStorage) {
     carrito = JSON.parse(carritoStorage);
     carritoLlenoAparece();
+    botonCarritoLlenoCanvas();
 } else {
     carritoVacioAparece();
 };
