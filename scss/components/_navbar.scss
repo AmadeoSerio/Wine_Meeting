@@ -20,25 +20,37 @@
     }
 }
 
+.offcanvas.offcanvas-end{
+    width: 40rem;
+}
+
+
 .offcanvas{
     background: #630229;
+    
+
     .offcanvas-header{
         h5{
             color: white;
-            font-size: 2rem;
+            font-size:2rem;
         }
     }
 
+    .offcanvas-body{
+        margin-top: 0rem;
+    }
     .carritoLlenoC {
         background-color: #44021b00;
 
-        @include flexbox (row, center, center);
+        @include flexbox (row, flex-start, stretch);
         gap: 1rem;
         color: white;
+        margin-bottom: 1rem;
 
         h2 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            width: 20rem;
         }
 
         h3 {
@@ -46,11 +58,13 @@
             margin-bottom: 1rem;
             color: #05121b;
             font-weight: bold;
+            width: 6rem;
         }
 
         p {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            width: 2rem;
         }
     }
 

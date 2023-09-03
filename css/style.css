@@ -44,6 +44,10 @@ body {
   animation: logoCarritoLleno 1s infinite linear;
 }
 
+.offcanvas.offcanvas-end {
+  width: 40rem;
+}
+
 .offcanvas {
   background: #630229;
 }
@@ -51,28 +55,35 @@ body {
   color: white;
   font-size: 2rem;
 }
+.offcanvas .offcanvas-body {
+  margin-top: 0rem;
+}
 .offcanvas .carritoLlenoC {
   background-color: rgba(68, 2, 27, 0);
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 1rem;
   color: white;
+  margin-bottom: 1rem;
 }
 .offcanvas .carritoLlenoC h2 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  width: 20rem;
 }
 .offcanvas .carritoLlenoC h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #05121b;
   font-weight: bold;
+  width: 6rem;
 }
 .offcanvas .carritoLlenoC p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  width: 2rem;
 }
 .offcanvas .botonComprar {
   margin-right: 1rem;
