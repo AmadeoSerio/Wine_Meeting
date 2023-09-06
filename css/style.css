@@ -245,5 +245,14 @@ main .cartas i {
   color: rgba(238, 238, 238, 0.9333333333);
   font-size: 1.8rem;
 }
+main .errorServidor h1 {
+  color: white;
+  margin-top: 5rem;
+  text-align: center;
+}
+main .errorServidor img {
+  margin-top: -4rem;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */

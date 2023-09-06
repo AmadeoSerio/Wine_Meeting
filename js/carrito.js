@@ -98,7 +98,7 @@ const sumarCantidad = (idVino) => {
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-    carritoLlenoAparece()////////////////////////
+    carritoLlenoAparece()//////////////////////// ESTA ES LA FUNCIÓN QUE HACE QUE SE CIERRE EL OFFCANVAS
     // agregarCarrito() 
 }
 
@@ -113,7 +113,7 @@ const restarCantidad = (idVino) => {
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-    carritoLlenoAparece()//////////////////////
+    carritoLlenoAparece()////////////////////// ESTA ES LA FUNCIÓN QUE HACE QUE SE CIERRE EL OFFCANVAS
     // agregarCarrito() 
 }
 
@@ -121,7 +121,7 @@ const restarCantidad = (idVino) => {
 
 //Función que hace que aparezca el DIV del carrito lleno
 export function carritoLlenoAparece() {
-    carritoLleno.innerHTML = "";////////////////////////////////////////////////
+    carritoLleno.innerHTML = "";//////////////////////////////////////////////// ACA ES CUANDO SE BORRA
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

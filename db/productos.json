@@ -1,0 +1,14 @@
+[
+    {"id": 1, "nombre": "Bodega Piedra Negra Chacayes Los Chacayes", "varietal": "Malbec","precio": 10000},
+    {"id": 2, "nombre": "Bodegas Borsao Syrah Campo de Borja Zarihs", "varietal": "Syrah","precio": 12250},
+    {"id": 3, "nombre": "Bodegas Juan Gil Jumilla Blue Label", "varietal": "Malbec","precio": 11000},
+    {"id": 4, "nombre": "Clos de la Grange Sauvignon Touraine", "varietal": "Cabernet sauvignon","precio": 9500},
+    {"id": 5, "nombre": "Albert Morot Beaune Cent-Vignes", "varietal": "Malbec","precio": 10000},
+    {"id": 6, "nombre": "Klinker Brick Grenache Blanc Lodi", "varietal": "Syrah","precio": 13000},
+    {"id": 7, "nombre": "Ken Wright Pinot Noir Willamette Valley", "varietal": "Cabernet sauvignon","precio": 12000},
+    {"id": 8, "nombre": "Bodegas Juan Gil Jumilla Blue Label", "varietal": "Malbec","precio": 11500},
+    {"id": 9, "nombre": "Moric Burgenland Hausmarke", "varietal": "Malbec","precio": 12000},
+    {"id": 10, "nombre": "Trimbach Riesling Alsace", "varietal": "Cabernet sauvignon","precio": 15000},
+    {"id": 11, "nombre": "Boscarelli Vino Nobile di Montepulciano", "varietal": "Malbec","precio": 13250},
+    {"id": 12, "nombre": "Vietti Barbera d’Asti Tre Vigne", "varietal": "Syrah","precio": 11500}
+]
