@@ -20,25 +20,26 @@
     }
 }
 
-.offcanvas.offcanvas-end{
-    width: 40rem;
+.offcanvas.offcanvas-end {
+    width: 45rem;
 }
 
 
-.offcanvas{
+.offcanvas {
     background: #630229;
-    
 
-    .offcanvas-header{
-        h5{
+
+    .offcanvas-header {
+        h5 {
             color: white;
-            font-size:2rem;
+            font-size: 2rem;
         }
     }
 
-    .offcanvas-body{
+    .offcanvas-body {
         margin-top: 0rem;
     }
+
     .carritoLlenoC {
         background-color: #44021b00;
 
@@ -65,6 +66,40 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
             width: 2rem;
+        }
+
+        .botonesAgregarRestar {
+            margin-left: 3rem;
+            align-self: flex-start;
+
+            button {
+                border: 0;
+                background-color: #05121b00;
+
+                i {
+                    color: #198754;
+                    font-size: 2rem;
+                    margin-right: .5rem;
+                }
+            }
+        }
+    }
+
+    .totales {
+        @include flexbox (row, flex-end, stretch);
+        gap: 1rem;
+        font-size: 1.2rem;
+
+        td {
+            color: white;
+        }
+
+        th {
+            color: #198754;
+            margin-right: 1.2rem;
+            font-weight: bolder;
+        font-size: 1.2rem;
+
         }
     }
 

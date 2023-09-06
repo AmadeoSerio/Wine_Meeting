@@ -1,5 +1,5 @@
-import {vinos} from "./inicio.js"
-import {carritoStorage} from "./inicio.js"
+import { vinos } from "./inicio.js"
+import { carritoStorage } from "./inicio.js"
 
 
 const carritoLleno = document.getElementById("carritoLlenoDiv");
@@ -11,11 +11,12 @@ const botonCarritoCanvasLleno = document.getElementById("botonCarritoCanvasDivLl
 //Variable del carrito
 let carrito = [];
 
-export function storage() {carrito = JSON.parse(carritoStorage);}
+export function storage() { carrito = JSON.parse(carritoStorage); }
 
 // Función para agregar al carrito
 export const agregarCarrito = (idVino) => {
     const vino = vinos.find((item) => item.id === idVino);
+
 
     const { nombre, precio, id, varietal } = vino
 
@@ -38,7 +39,7 @@ export const agregarCarrito = (idVino) => {
 
     const vinoCarrito = carrito.find((vino) => vino.id === idVino);
 
-    if (vinoCarrito === undefined){
+    if (vinoCarrito === undefined) {
         const nuevoVinoCarrito = {
             id: id,
             nombre: nombre,
@@ -49,7 +50,7 @@ export const agregarCarrito = (idVino) => {
         carrito.push(nuevoVinoCarrito);
 
         sessionStorage.setItem("carrito", JSON.stringify(carrito))
-    }else{
+    } else {
         const indexVinoCarrito = carrito.findIndex((item) => item.id === idVino)
 
         carrito[indexVinoCarrito].cantidad++
@@ -88,9 +89,39 @@ export function carritoVacioAparece() {
     }
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const sumarCantidad = (idVino) => {
+    const indexVinoCarrito = carrito.findIndex((item) => item.id === idVino)
+    const precio = carrito[indexVinoCarrito].precio / carrito[indexVinoCarrito].cantidad
+    carrito[indexVinoCarrito].cantidad++
+    carrito[indexVinoCarrito].precio = precio * carrito[indexVinoCarrito].cantidad
+
+    sessionStorage.setItem("carrito", JSON.stringify(carrito))
+
+    carritoLlenoAparece()////////////////////////
+    // agregarCarrito() 
+}
+
+const restarCantidad = (idVino) => {
+    const indexVinoCarrito = carrito.findIndex((item) => item.id === idVino)
+    const precio = carrito[indexVinoCarrito].precio / carrito[indexVinoCarrito].cantidad
+    carrito[indexVinoCarrito].cantidad--
+    carrito[indexVinoCarrito].precio = precio * carrito[indexVinoCarrito].cantidad
+    if (carrito[indexVinoCarrito].cantidad === 0) {
+        carrito.splice(indexVinoCarrito, 1)
+    }
+
+    sessionStorage.setItem("carrito", JSON.stringify(carrito))
+
+    carritoLlenoAparece()//////////////////////
+    // agregarCarrito() 
+}
+
+
 
 //Función que hace que aparezca el DIV del carrito lleno
 export function carritoLlenoAparece() {
+    carritoLleno.innerHTML = "";////////////////////////////////////////////////
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -106,8 +137,7 @@ export function carritoLlenoAparece() {
     carritoLleno.append(div);
 
     carrito.forEach(item => {
-
-        const { nombre, varietal, precio, cantidad } = item;
+        const { nombre, varietal, precio, cantidad, id } = item;
 
         const div = document.createElement("div");
         div.className = "carritoLlenoC";
@@ -116,8 +146,19 @@ export function carritoLlenoAparece() {
         <h3>${varietal}</h3>
         <p>X${cantidad}</p>
         <p>$${precio}</p>
+        <div class="botonesAgregarRestar">
+        <button id="-${id}" class="boton-"> <i class="fa-regular fa-square-minus"></i> </button>
+        <button id="+${id}" class="boton+"> <i class="fa-regular fa-square-plus"></i> </button>
+        </div>
         `;
         carritoCanvas.append(div);
+
+        const btnMenos = document.getElementById(`-${id}`);
+        const btnMas = document.getElementById(`+${id}`);
+
+        btnMenos.addEventListener("click", () => restarCantidad(id));
+        btnMas.addEventListener("click", () => sumarCantidad(id));
+
     });
     crearBotones();
 };
@@ -152,8 +193,38 @@ function limpiaDiv() {
 };
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const generarTotales = () => {
+    const valorTotal = carrito.reduce((total, { precio }) => total + precio, 0);
+    const cantidadTotal = carrito.reduce((total, { cantidad }) => total + cantidad, 0);
+
+    return {
+        valorTotal: valorTotal,
+        cantidadTotal: cantidadTotal
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 //Botones que se crean para vaciar el carrito y comprar
 function crearBotones() {
+    const totales = document.createElement("div");
+    totales.innerHTML = "";
+    carritoLleno.append(totales);
+
+
+    const cantidadesTotales = document.createElement("tr");
+    cantidadesTotales.className = "totales container"
+    cantidadesTotales.innerHTML = `
+    <td>Cantidad de vinos: ${generarTotales().cantidadTotal}</td>
+    <td></td>
+    <th><b>Total:$${generarTotales().valorTotal}</b></th>
+    `
+
+
     const divBotones = document.createElement("div");
     divBotones.className = "botonesDiv";
     divBotones.innerHTML = "";
@@ -207,7 +278,7 @@ function crearBotones() {
                     title: 'Vaciando',
                     html: 'Esta ventana se cierra en <b></b> milisegundos.',
                     background: "#44021b",
-                    color: "#eeee",        
+                    color: "#eeee",
                     timer: 1000,
                     timerProgressBar: true,
                     allowOutsideClick: false,
@@ -229,6 +300,7 @@ function crearBotones() {
             }
         })
     });
+    carritoCanvas.append(cantidadesTotales);
     carritoCanvas.append(botonComprar);
     carritoCanvas.append(botonVaciar);
 };
