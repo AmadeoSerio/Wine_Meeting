@@ -38,7 +38,7 @@ main {
         }
 
         h3 {
-            @include titulos(grey, 1rem, left, none, 0);
+            @include titulos(#137dc9, 1rem, left, none, 0);
         }
 
         p {

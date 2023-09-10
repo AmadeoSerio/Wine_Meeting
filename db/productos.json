@@ -6,7 +6,7 @@
     {"id": 5, "nombre": "Albert Morot Beaune Cent-Vignes", "varietal": "Malbec","precio": 10000},
     {"id": 6, "nombre": "Klinker Brick Grenache Blanc Lodi", "varietal": "Syrah","precio": 13000},
     {"id": 7, "nombre": "Ken Wright Pinot Noir Willamette Valley", "varietal": "Cabernet sauvignon","precio": 12000},
-    {"id": 8, "nombre": "Bodegas Juan Gil Jumilla Blue Label", "varietal": "Malbec","precio": 11500},
+    {"id": 8, "nombre": "Bodegas Jumilla Label", "varietal": "Malbec","precio": 11500},
     {"id": 9, "nombre": "Moric Burgenland Hausmarke", "varietal": "Malbec","precio": 12000},
     {"id": 10, "nombre": "Trimbach Riesling Alsace", "varietal": "Cabernet sauvignon","precio": 15000},
     {"id": 11, "nombre": "Boscarelli Vino Nobile di Montepulciano", "varietal": "Malbec","precio": 13250},

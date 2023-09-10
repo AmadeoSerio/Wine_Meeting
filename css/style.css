@@ -43,6 +43,15 @@ body {
   border: 0;
   animation: logoCarritoLleno 1s infinite linear;
 }
+.navbar .dropdown-menu li a {
+  user-select: all;
+}
+.navbar .dropdown-menu li a::selection {
+  background-color: rgba(19, 125, 201, 0);
+}
+.navbar .dropdown-menu:hover {
+  cursor: pointer;
+}
 
 .offcanvas.offcanvas-end {
   width: 45rem;
@@ -76,7 +85,7 @@ body {
 .offcanvas .carritoLlenoC h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #05121b;
+  color: #137dc9;
   font-weight: bold;
   width: 6rem;
 }
@@ -126,6 +135,7 @@ body {
   font-weight: bolder;
   transition: 0.8s;
   background-color: #198754;
+  color: white;
 }
 .offcanvas .botonComprar:hover {
   transform: scale(0.96);
@@ -208,7 +218,7 @@ main .cartas h2 {
   letter-spacing: 0;
 }
 main .cartas h3 {
-  color: grey;
+  color: #137dc9;
   font-size: 1rem;
   text-align: left;
   text-transform: none;

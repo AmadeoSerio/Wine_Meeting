@@ -62,8 +62,7 @@ export const agregarCarrito = (idVino) => {
     limpiaDiv();
     botonCarritoLlenoCanvas();
     carrito.length != 0 && carritoLlenoAparece();
-    carritoVacio.innerHTML = "";
-    botonCarritoCanvasVacio.innerHTML = "";
+    carrito.length === 0 && carritoVacioAparece();
 };
 
 
@@ -86,8 +85,10 @@ export function carritoVacioAparece() {
 
         carritoVacio.append(div);
         botonCarritoVacioCanvas();
+        botonCarritoCanvasLleno.innerHTML = "";
     }
 };
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const sumarCantidad = (idVino) => {
@@ -98,8 +99,8 @@ const sumarCantidad = (idVino) => {
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-    carritoLlenoAparece()//////////////////////// ESTA ES LA FUNCIÓN QUE HACE QUE SE CIERRE EL OFFCANVAS
-    // agregarCarrito() 
+    dibujarCarrito();
+    crearBotones();
 }
 
 const restarCantidad = (idVino) => {
@@ -113,15 +114,39 @@ const restarCantidad = (idVino) => {
 
     sessionStorage.setItem("carrito", JSON.stringify(carrito))
 
-    carritoLlenoAparece()////////////////////// ESTA ES LA FUNCIÓN QUE HACE QUE SE CIERRE EL OFFCANVAS
-    // agregarCarrito() 
-}
+    dibujarCarrito();
+    crearBotones();
 
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: 'Carrito vaciado',
+            html: 'Esta ventana se cierra en <b></b> milisegundos.',
+            background: "#44021b",
+            color: "#eeee",
+            timer: 2000,
+            timerProgressBar: true,
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        });
+        setTimeout(() => {
+            sessionStorage.clear();
+            location.reload();
+        }, 2000);
+    }
+}
 
 
 //Función que hace que aparezca el DIV del carrito lleno
 export function carritoLlenoAparece() {
-    carritoLleno.innerHTML = "";//////////////////////////////////////////////// ACA ES CUANDO SE BORRA
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -136,6 +161,16 @@ export function carritoLlenoAparece() {
     `;
     carritoLleno.append(div);
 
+    dibujarCarrito();
+    crearBotones();
+};
+
+
+
+
+
+const dibujarCarrito = () => {
+    carritoCanvas.innerHTML = "";
     carrito.forEach(item => {
         const { nombre, varietal, precio, cantidad, id } = item;
 
@@ -160,8 +195,10 @@ export function carritoLlenoAparece() {
         btnMas.addEventListener("click", () => sumarCantidad(id));
 
     });
-    crearBotones();
-};
+}
+
+
+
 
 
 //Función que crea el ícono del carrito vacío
@@ -190,6 +227,8 @@ export function botonCarritoLlenoCanvas() {
 function limpiaDiv() {
     carritoLleno.innerHTML = "";
     botonCarritoCanvasLleno.innerHTML = "";
+    carritoVacio.innerHTML = "";
+    botonCarritoCanvasVacio.innerHTML = "";
 };
 
 
@@ -249,8 +288,55 @@ function crearBotones() {
             confirmButtonColor: "#05121b",
         }).then((result) => {
             if (result.isConfirmed) {
-                sessionStorage.clear();
-                location.reload();
+                Swal.fire({
+                    title: '¿Tienes 18 años o más?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Si',
+                    denyButtonText: `No`,
+                    background: "#44021b",
+                    color: "#eeee",
+                    confirmButtonColor: "#05121b"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Gracias por su compra',
+                            background: "#44021b",
+                            color: "#eeee",
+                            timer: 2000,
+                            timerProgressBar: true,
+                            allowOutsideClick: false,
+                            confirmButtonColor: "#05121b",
+                            didOpen: () => {
+                                Swal.showLoading()
+                                const b = Swal.getHtmlContainer().querySelector('b')
+                                timerInterval = setInterval(() => {
+                                    b.textContent = Swal.getTimerLeft()
+                                }, 100)
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval)
+                            }
+                        });
+                        setTimeout(() => {
+                            sessionStorage.clear();
+                            location.reload();
+                        }, 2000);
+                    } else if (result.isDenied) {
+                        Swal.fire({
+                            title: 'Tienes que ser mayor de edad para comprar bebidas alcohólicas',
+                            allowOutsideClick: false,
+                            confirmButtonColor: "#05121b",
+                            background: "#44021b",
+                            color: "#eeee"
+                        }).then((click) => {
+                            if (click.isConfirmed) {
+                                sessionStorage.clear();
+                                window.location.href = `https://www.google.com/`
+                            }
+                        })
+                    }
+                })
             }
         })
     });
@@ -279,7 +365,7 @@ function crearBotones() {
                     html: 'Esta ventana se cierra en <b></b> milisegundos.',
                     background: "#44021b",
                     color: "#eeee",
-                    timer: 1000,
+                    timer: 2000,
                     timerProgressBar: true,
                     allowOutsideClick: false,
                     didOpen: () => {
@@ -296,7 +382,7 @@ function crearBotones() {
                 setTimeout(() => {
                     sessionStorage.clear();
                     location.reload();
-                }, 1000);
+                }, 2000);
             }
         })
     });
@@ -304,9 +390,3 @@ function crearBotones() {
     carritoCanvas.append(botonComprar);
     carritoCanvas.append(botonVaciar);
 };
-
-
-
-
-
-////////////////MINUTO/HORA 1.15

@@ -18,6 +18,20 @@
             animation: logoCarritoLleno 1s infinite linear;
         }
     }
+
+    .dropdown-menu{
+        li{
+            a{
+        &::selection{
+            background-color: #137dc900;
+        }
+        user-select: all;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
 }
 
 .offcanvas.offcanvas-end {
@@ -57,7 +71,7 @@
         h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: #05121b;
+            color: #137dc9;
             font-weight: bold;
             width: 6rem;
         }
@@ -114,6 +128,7 @@
         font-weight: bolder;
         transition: .8s;
         background-color: #198754;
+        color: white;
 
         &:hover {
             transform: scale(.96);
