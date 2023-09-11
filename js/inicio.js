@@ -90,7 +90,7 @@ export let vinos = [];
 
 //Llamado a los vinos que están en la base de datos
 const traerBodega = async () => {
-    const response = await fetch("../db/productos.json")
+    const response = await fetch("./db/productos.json")
     const data = await response.json();
 
     data.forEach(item => {
@@ -137,7 +137,7 @@ traerBodega().then(() => {
     div.className = "errorServidor"
     div.innerHTML = `
     <h1>Error al conectarse al servidor</h1>
-    <img src="../images/errorServidor.jpg" alt="error del servidor"></img>
+    <img src=" ./images/errorServidor.jpg " alt="error del servidor"></img>
     `
     cartas.append(div);
 })
