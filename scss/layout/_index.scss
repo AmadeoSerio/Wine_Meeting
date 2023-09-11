@@ -23,7 +23,7 @@ main {
         background-color: #05121b;
         margin-bottom: 1rem;
         width: 18rem;
-        height: 30rem;
+        height: 45rem;
         justify-content: space-between;
         border-radius: 1rem;
         transition: .6s;
@@ -38,7 +38,7 @@ main {
         }
 
         h3 {
-            @include titulos(grey, 1rem, left, none, 0);
+            @include titulos(#137dc9, 1rem, left, none, 0);
         }
 
         p {
@@ -46,7 +46,7 @@ main {
         }
 
         img {
-            @include imagenes (15rem, 15rem, cover);
+            @include imagenes (15rem, 30rem, cover);
             align-self: center;
         }
 
