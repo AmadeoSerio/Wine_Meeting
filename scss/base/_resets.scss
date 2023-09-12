@@ -18,3 +18,20 @@ body {
   font-family: $main-font;
   background-color: #151e24;
 }
+
+.swal2-popup {
+  border-radius: 1rem;
+}
+
+.swal2-image{
+  border-radius: 1rem;
+}
+
+button.swal2-confirm.swal2-styled.swal2-default-outline {
+  box-shadow: none;
+  font-weight: bolder;
+}
+
+button.swal2-cancel.swal2-styled.swal2-default-outline {
+  font-weight: bolder;
+}

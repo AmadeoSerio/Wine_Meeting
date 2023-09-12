@@ -119,7 +119,7 @@ const crearCards = () => {
         <h3>${varietal}</h3>
         <p>$${precio}</p>
         <img src="${img}">
-        <button id="boton${id}">  <i class="fa-solid fa-cart-plus fa-2xl"></i> Sumar al carrito</button>
+        <button id="boton${id}"> <i class="fa-solid fa-cart-plus fa-2xl"></i> Sumar al carrito</button>
         `;
         cartas.append(div);
 

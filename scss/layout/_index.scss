@@ -21,9 +21,9 @@ main {
         @include flexbox (column, center, flex-start);
         padding: 1rem;
         background-color: #05121b;
-        margin-bottom: 1rem;
-        width: 18rem;
-        height: 45rem;
+        margin-bottom: 2rem;
+        width: 16rem;
+        height: 43rem;
         justify-content: space-between;
         border-radius: 1rem;
         transition: .6s;
@@ -38,7 +38,8 @@ main {
         }
 
         h3 {
-            @include titulos(#137dc9, 1rem, left, none, 0);
+            @include titulos(#24cf7f, 1.2rem, left, none, 0);
+            font-weight: bolder;
         }
 
         p {
@@ -46,8 +47,9 @@ main {
         }
 
         img {
-            @include imagenes (15rem, 30rem, cover);
+            @include imagenes (13rem, 28rem, cover);
             align-self: center;
+            border-radius: 1rem;
         }
 
         button {
@@ -76,14 +78,14 @@ main {
         ;
     }
 
-    .errorServidor{
-        h1{
+    .errorServidor {
+        h1 {
             color: white;
             margin-top: 5rem;
             text-align: center;
         }
 
-        img{
+        img {
             margin-top: -4rem;
             text-align: center;
         }
