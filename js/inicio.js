@@ -15,11 +15,7 @@
 
 // PONER FUNCIONES ANTES DE LLAMARLA!!!!!!!!
 
-//AGREGAR un SWEET ALERT ANTES de mandar el MAIL!!!!!!!!!!!!!!!!!!!!!
-
 //buscador cuando no encuentra nada la pagina queda vacía
-
-//sacar lo de subir y hacer con un boton a la derecha
 
 
 
@@ -60,7 +56,8 @@ const precioFiltro = document.getElementById("precioFiltro");
 const malbecFooter = document.getElementById("malbecFooter");
 const syrahFooter = document.getElementById("syrahFooter");
 const cabernetFooter = document.getElementById("cabernetFooter");
-export const restablecerFiltro = document.getElementById("restablecerFiltro")
+export const restablecerFiltro = document.getElementById("restablecerFiltro");
+const btnTop = document.getElementById("btnTop");
 
 
 //Condición que carga o no el carrito cuando inicia la página
@@ -81,11 +78,6 @@ class Cards {
         this.varietal = varietal;
         this.precio = precio;
         this.img = img;
-        this.vendido = false;
-    }
-
-    vendido() {
-        this.vendido = true;
     }
 };
 
@@ -157,7 +149,19 @@ buscador.addEventListener("keyup", (e) => {
     if (e.target.value !== "") {
         crearCards(vinosBuscador);
         vinos = JSON.parse(localStorage.getItem("vinos"));
-    } else {
+    } 
+////////////////////////////////////////////////////////////////////////////////////////
+    else if (e.target.value !== vinosBuscador.nombre){
+        let div = document.createElement("div");
+    div.className = "errorServidor"
+    div.innerHTML = `
+    <h1>Error al conectarse al servidor</h1>
+    <img src="./images/errorServidor.jpg" alt="error del servidor"></img>
+    `
+    cartas.append(div);
+    } 
+////////////////////////////////////////////////////////////////////////////////////////
+    else {
         vinos = JSON.parse(localStorage.getItem("vinos"));
         crearCards(vinos);
     }
@@ -231,3 +235,24 @@ cabernetFooter.addEventListener("click", (e) => {
             crearCards(vinosVarietal);
         }
     });
+
+
+//Botón para subir al top (útil para la versión mobile)
+// Función que hace que aparezca cuando se scrollea 20px
+window.onscroll = function() {funcionScroll()};
+
+function funcionScroll() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        btnTop.style.display = "block";
+    } else {
+        btnTop.style.display = "none";
+    }
+  }
+
+  // Función que hace que suba hacia arriba.
+  function funcionSubir() {
+      document.body.scrollTop = 0; // Safari
+      document.documentElement.scrollTop = 0; // Chrome, Firefox, IE, Opera
+    }
+
+    btnTop.addEventListener("click", () => funcionSubir())

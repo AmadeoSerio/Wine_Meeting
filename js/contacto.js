@@ -1,7 +1,9 @@
 import { cartas } from "./inicio.js"
 import { restablecerFiltro } from "./inicio.js"
 
+
 const contacto = document.getElementById("contacto");
+
 
 const dibujarContacto = () => {
 
@@ -24,7 +26,7 @@ const dibujarContacto = () => {
         <label class="formText" for="comments">Comentarios</label>
         <textarea placeholder="Escribe aquí..." class="formTextLabel" name="comments" cols="15" rows="5"></textarea>
 
-        <input class="formEnviar" type="submit" value="Enviar">
+        <input id="enviarMail" class="formEnviar" type="submit" value="Enviar">
     </form>
     </div>
     <div class="contactoFooter container">
@@ -32,11 +34,21 @@ const dibujarContacto = () => {
     </div>
     `
 
-
     cartas.append(div);
-    };
-    
-    contacto.addEventListener("click", () => {
+};
+
+contacto.addEventListener("click", () => {
     dibujarContacto()
     restablecerFiltro.removeAttribute("href");
-    });
+    const enviarMail3 = document.getElementById("enviarMail");
+
+    enviarMail3.addEventListener("click", () => {
+        Swal.fire({
+            title: 'Estás siendo redireccionad@',
+            allowOutsideClick: false,
+            confirmButtonColor: "#05121b",
+            background: "#44021b",
+            color: "#eeee"
+        })
+    })
+});

@@ -272,4 +272,26 @@ main {
             }
         }
     }
+
+    .btnTopClass {
+        display: none;
+        position: fixed;
+        bottom: 2rem;
+        right: 2.5rem;
+        border: none;
+        outline: none;
+        background-color: #24cf7f;
+        color: black;
+        cursor: pointer;
+        height: 3.3rem;
+        width: 3.3rem;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        transition: .6s;
+        
+        &:hover {
+          background-color: #eeee;
+        }
+      }
+      
 }

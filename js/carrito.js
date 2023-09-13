@@ -30,7 +30,7 @@ export const agregarCarrito = (idVino) => {
         imageWidth: 240,
         imageHeight: 500,
         imageAlt: "Custom image",
-        timer: 300000,
+        timer: 3000,
         color: "#eeee",
         timerProgressBar: true,
         confirmButtonColor: "#05121b",
@@ -90,7 +90,7 @@ export function carritoVacioAparece() {
 };
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Funciones de los botones que + y - que suman o restan productos en el carrito
 const sumarCantidad = (idVino) => {
     const indexVinoCarrito = carrito.findIndex((item) => item.id === idVino)
     const precio = carrito[indexVinoCarrito].precio / carrito[indexVinoCarrito].cantidad
@@ -166,9 +166,7 @@ export function carritoLlenoAparece() {
 };
 
 
-
-
-
+//Funcion que dibuja el carrito
 const dibujarCarrito = () => {
     carritoCanvas.innerHTML = "";
     carrito.forEach(item => {
@@ -196,9 +194,6 @@ const dibujarCarrito = () => {
 
     });
 }
-
-
-
 
 
 //Función que crea el ícono del carrito vacío
@@ -232,7 +227,7 @@ function limpiaDiv() {
 };
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Función que genera los totales
 const generarTotales = () => {
     const valorTotal = carrito.reduce((total, { precio }) => total + precio, 0);
     const cantidadTotal = carrito.reduce((total, { cantidad }) => total + cantidad, 0);
@@ -242,13 +237,9 @@ const generarTotales = () => {
         cantidadTotal: cantidadTotal
     }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-//Botones que se crean para vaciar el carrito y comprar
+//Botones que se crean para vaciar el carrito y comprar. Además se muestran los totales
 function crearBotones() {
     const totales = document.createElement("div");
     totales.innerHTML = "";
