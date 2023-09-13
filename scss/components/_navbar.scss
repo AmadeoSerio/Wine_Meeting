@@ -36,10 +36,26 @@
             background-color: #137dc900;
         }
         user-select: all;
+        &:active{
+            background-color: #00b86200;
+        }
             }
         }
         &:hover{
             cursor: pointer;
+        }
+    }
+
+.restablecerF{
+cursor: pointer;
+}
+
+    .classQS{
+        font-weight: bold;
+        transition: .3s;
+        &:hover{
+            cursor: pointer;
+            color: #24cf7f;
         }
     }
 }
@@ -60,7 +76,6 @@
         }
 
         .btn-close {
-            background-color: #eeee;
             --bs-btn-close-opacity: 1;
             --bs-btn-close-focus-shadow: none;
             }

@@ -19,7 +19,7 @@
 
         <nav class="nav navbar navbar-expand-lg fixed-top navbar-expand-xxl" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">W.m.</a>
+                <a class="navbar-brand">W.m.</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Restablecer filtros</a>
+                            <a class="nav-link active classQS" aria-current="page" href="./index.html">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Varietales
                             </a>
@@ -56,22 +56,25 @@
                                 Precio
                             </a>
                             <ul class="dropdown-menu" id="precioFiltro">
-                                <li><a class="dropdown-item" href="#">Ascendente</a></li>
-                                <li><a class="dropdown-item" href="#">Descendente</a></li>
+                                <li><a class="dropdown-item">Menor precio</a></li>
+                                <li><a class="dropdown-item">Mayor precio</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                            <a class="nav-link restablecerF" id="restablecerFiltro" aria-current="page">Restrablecer
+                                filtros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+                            <a class="nav-link active classQS" aria-current="page" id="quienesSomos">Quienes somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active classQS" aria-current="page" id="contacto">Contacto</a>
                         </li>
                     </ul>
                     <div class="btnVacio" id="botonCarritoCanvasDivVacio"></div>
                     <div class="btnLleno" id="botonCarritoCanvasDivLleno"></div>
                     <form class="d-flex" id="buscador" role="search">
-                        <input class="form-control me-2" placeholder="Buscar por nombre"
-                            aria-label="Search">
+                        <input class="form-control me-2" placeholder="Buscar por nombre" aria-label="Search">
                     </form>
                 </div>
             </div>
@@ -84,12 +87,12 @@
             <h1>Wine meeting</h1>
             <p>Venta de vinos y destilados</p>
         </div>
-        
+
         <div id="carritoVacio"></div>
-        
+
         <div id="carritoLlenoDiv" class="container carrito">
         </div>
-        
+
         <div id="cartas" class="container mostrador"></div>
 
     </main>
@@ -109,17 +112,18 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    
-    
-    <script type="module" src="./js/inicio.js" ></script>
-    
-    <script type="module" src="./js/carrito.js" ></script>
-    
-    
-    
-    
-    
+
+
+
+    <script type="module" src="./js/inicio.js"></script>
+
+    <script type="module" src="./js/carrito.js"></script>
+
+    <script type="module" src="./js/quienesSomos.js"></script>
+
+    <script type="module" src="./js/contacto.js"></script>
+
+
 </body>
 
 </html>

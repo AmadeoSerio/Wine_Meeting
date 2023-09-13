@@ -25,6 +25,11 @@ body {
   border-radius: 1rem;
 }
 
+div#swal2-html-container {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 button.swal2-confirm.swal2-styled.swal2-default-outline {
   box-shadow: none;
   font-weight: bolder;
@@ -74,8 +79,22 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
 .navbar .dropdown-menu li a::selection {
   background-color: rgba(19, 125, 201, 0);
 }
+.navbar .dropdown-menu li a:active {
+  background-color: rgba(0, 184, 98, 0);
+}
 .navbar .dropdown-menu:hover {
   cursor: pointer;
+}
+.navbar .restablecerF {
+  cursor: pointer;
+}
+.navbar .classQS {
+  font-weight: bold;
+  transition: 0.3s;
+}
+.navbar .classQS:hover {
+  cursor: pointer;
+  color: #24cf7f;
 }
 
 .offcanvas.offcanvas-end {
@@ -90,7 +109,6 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   font-size: 2rem;
 }
 .offcanvas .offcanvas-header .btn-close {
-  background-color: rgba(238, 238, 238, 0.9333333333);
   --bs-btn-close-opacity: 1;
   --bs-btn-close-focus-shadow: none;
 }
@@ -207,13 +225,17 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
 }
 .footer ul li a:hover {
   color: white;
+  cursor: pointer;
+}
+.footer ul li a:focus {
+  color: #24cf7f;
 }
 .footer p {
   color: #24cf7f;
 }
 
 main .titulo h1 {
-  margin-top: 4.5rem;
+  margin-top: 5rem;
   color: white;
   font-size: 3rem;
   text-align: center;
@@ -309,6 +331,206 @@ main .errorServidor h1 {
 main .errorServidor img {
   margin-top: -4rem;
   text-align: center;
+}
+main .quienesSomos .cami {
+  background: linear-gradient(to bottom left, #44021b, rgba(0, 0, 0, 0));
+  padding: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 0rem;
+}
+main .quienesSomos .cami h2 {
+  color: white;
+  font-size: 3rem;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0rem;
+}
+main .quienesSomos .cami p {
+  color: white;
+  font-size: 1rem;
+  text-align: justify;
+  text-transform: none;
+  letter-spacing: 0rem;
+}
+main .quienesSomos .cami img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+main .quienesSomos .estefi {
+  background: linear-gradient(to bottom right, #44021b, rgba(0, 0, 0, 0));
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+}
+main .quienesSomos .estefi h2 {
+  color: white;
+  font-size: 3rem;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0rem;
+}
+main .quienesSomos .estefi p {
+  color: white;
+  font-size: 1rem;
+  text-align: justify;
+  text-transform: none;
+  letter-spacing: 0rem;
+}
+main .quienesSomos .estefi img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 2rem;
+  object-position: left;
+}
+main .contacto .formulario {
+  margin-top: -1rem;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #44021b, rgba(0, 0, 0, 0));
+  border-radius: 2rem;
+}
+main .contacto .formulario input:-webkit-autofill {
+  -webkit-text-fill-color: rgba(238, 238, 238, 0.9333333333);
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+main .contacto .formulario h2 {
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0rem;
+}
+main .contacto .formulario .formName {
+  color: #24cf7f;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .contacto .formulario .formNameLabel {
+  width: 30rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid #24cf7f;
+}
+main .contacto .formulario .formNameLabel:focus-visible {
+  border: 0.2rem solid rgba(255, 217, 0, 0);
+}
+main .contacto .formulario .formMail {
+  color: #24cf7f;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .contacto .formulario .formMailLabel {
+  width: 30rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid #24cf7f;
+}
+main .contacto .formulario .formMailLabel:focus-visible {
+  border: 0.2rem solid rgba(255, 217, 0, 0);
+}
+main .contacto .formulario .formSubject {
+  color: #24cf7f;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .contacto .formulario .formSubjectLabel {
+  width: 30rem;
+  font-weight: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid #24cf7f;
+}
+main .contacto .formulario .formSubjectLabel:focus-visible {
+  border: 0.2rem solid rgba(255, 217, 0, 0);
+}
+main .contacto .formulario .formText {
+  color: #24cf7f;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .contacto .formulario .formTextLabel {
+  width: 30rem;
+  font-weight: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid #24cf7f;
+}
+main .contacto .formulario .formTextLabel:focus-visible {
+  border: 0.2rem solid rgba(255, 217, 0, 0);
+}
+main .contacto .formulario .formEnviar {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #24cf7f;
+  border: 0;
+  transition: 0.6s;
+}
+main .contacto .formulario .formEnviar:hover {
+  background-color: rgba(238, 238, 238, 0.9333333333);
+}
+main .contacto .contactoFooter {
+  margin-top: 1.8rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+main .contacto .contactoFooter i {
+  padding: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.6s;
+  color: #24cf7f;
+}
+main .contacto .contactoFooter i:hover {
+  color: #d61861;
+  transform: scale(1.3);
 }
 
 /*# sourceMappingURL=style.css.map */

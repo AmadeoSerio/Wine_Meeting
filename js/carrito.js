@@ -23,14 +23,14 @@ export const agregarCarrito = (idVino) => {
     Swal.fire({
         background: "#44021b",
         title: "Agregaste al carrito el producto:",
-        text: `${nombre}.
-              $${precio}.`,
+        text: `${nombre}
+              $${precio}`,
         imageUrl: `${img}`,
         imageAlt: "botella de vino",
         imageWidth: 240,
         imageHeight: 500,
         imageAlt: "Custom image",
-        timer: 3000,
+        timer: 300000,
         color: "#eeee",
         timerProgressBar: true,
         confirmButtonColor: "#05121b",
@@ -152,7 +152,7 @@ export function carritoLlenoAparece() {
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> <i class="fa-solid fa-cart-shopping"></i> Carrito</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div id="carritoCanvas" class="offcanvas-body">
       </div>

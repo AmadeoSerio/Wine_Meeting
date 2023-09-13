@@ -6,6 +6,10 @@
             color: #24cf7f;
             &:hover {
                 color: white;
+                cursor: pointer;
+            }
+            &:focus {
+                color: #24cf7f;
             }
            }
         }

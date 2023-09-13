@@ -15,6 +15,11 @@
 
 // PONER FUNCIONES ANTES DE LLAMARLA!!!!!!!!
 
+//AGREGAR un SWEET ALERT ANTES de mandar el MAIL!!!!!!!!!!!!!!!!!!!!!
+
+//buscador cuando no encuentra nada la pagina queda vacía
+
+//sacar lo de subir y hacer con un boton a la derecha
 
 
 
@@ -48,18 +53,18 @@ import { storage } from "./carrito.js";
 
 
 export const carritoStorage = sessionStorage.getItem("carrito");
-const cartas = document.getElementById("cartas");
+export const cartas = document.getElementById("cartas");
 const buscador = document.getElementById("buscador");
 const varietalesFiltro = document.getElementById("varietalesFiltro");
 const precioFiltro = document.getElementById("precioFiltro");
 const malbecFooter = document.getElementById("malbecFooter");
 const syrahFooter = document.getElementById("syrahFooter");
 const cabernetFooter = document.getElementById("cabernetFooter");
+export const restablecerFiltro = document.getElementById("restablecerFiltro")
 
 
 //Condición que carga o no el carrito cuando inicia la página
 if (carritoStorage) {
-
     storage();
     carritoLlenoAparece();
     botonCarritoLlenoCanvas();
@@ -107,6 +112,7 @@ const traerBodega = async () => {
 
 //Características e información que aparece en cada una de las cartas
 const crearCards = () => {
+    restablecerFiltro.href="./index.html" //esto se crea para restablecer los filtros, pero desaparece en las pestañas que no sirve
     cartas.innerHTML = ""
 
     vinos.forEach((item) => {
@@ -132,7 +138,6 @@ const crearCards = () => {
 //Función que trae los vinos. Tiene un .then por si se conecta correctamente y un .catch por si falla
 traerBodega().then(() => {
     crearCards();
-
 }).catch(() => {
     let div = document.createElement("div");
     div.className = "errorServidor"
@@ -188,9 +193,9 @@ precioFiltro.addEventListener("click", (e) => {
     const orden = e.target.innerHTML;
     let vinosFiltradoPrecio;
 
-    if (orden === "Ascendente") {
+    if (orden === "Menor precio") {
         vinosFiltradoPrecio = vinos.sort((a, b) => a.precio - b.precio)
-    } else if (orden === "Descendente") {
+    } else if (orden === "Mayor precio") {
         vinosFiltradoPrecio = vinos.sort((a, b) => b.precio - a.precio)
     }
     crearCards(vinosFiltradoPrecio)
