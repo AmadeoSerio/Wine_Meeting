@@ -15,7 +15,6 @@
 
 // PONER FUNCIONES ANTES DE LLAMARLA!!!!!!!!
 
-//buscador cuando no encuentra nada la pagina queda vacía
 
 
 
@@ -104,7 +103,7 @@ const traerBodega = async () => {
 
 //Características e información que aparece en cada una de las cartas
 const crearCards = () => {
-    restablecerFiltro.href="./index.html" //esto se crea para restablecer los filtros, pero desaparece en las pestañas que no sirve
+    restablecerFiltro.href = "./index.html" //esto se crea para restablecer los filtros, pero desaparece en las pestañas que no sirve
     cartas.innerHTML = ""
 
     vinos.forEach((item) => {
@@ -146,31 +145,28 @@ buscador.addEventListener("keyup", (e) => {
     const vinosBuscador = vinos.filter((vino) => vino.nombre.toLowerCase().includes(e.target.value))
     vinos = vinosBuscador
 
-    if (e.target.value !== "") {
+    if (vinosBuscador.length > 0) {
         crearCards(vinosBuscador);
         vinos = JSON.parse(localStorage.getItem("vinos"));
-    } 
-////////////////////////////////////////////////////////////////////////////////////////
-    else if (e.target.value !== vinosBuscador.nombre){
+    } else {
         let div = document.createElement("div");
-    div.className = "errorServidor"
-    div.innerHTML = `
-    <h1>Error al conectarse al servidor</h1>
-    <img src="./images/errorServidor.jpg" alt="error del servidor"></img>
-    `
-    cartas.append(div);
-    } 
-////////////////////////////////////////////////////////////////////////////////////////
-    else {
+        div.className = "sinVinoEncontrado container";
+        div.innerHTML = `
+    <h2>Lo sentimos</h2>
+    <h3>El nombre del producto no es válido o no contamos con stock.</h3>
+    <img src="./images/noSeEncontro.png" alt="error del servidor"></img>
+    `;
+        cartas.innerHTML = "";
+        cartas.append(div);
+
         vinos = JSON.parse(localStorage.getItem("vinos"));
-        crearCards(vinos);
     }
 })
 
 
 // Función del filtro por varietal
 varietalesFiltro.addEventListener("click", (e) => {
-//Parseo el arreglo de vinos para que se suba en el storage y cargue correctamente cada varietal al filtrar varias veces. 
+    //Parseo el arreglo de vinos para que se suba en el storage y cargue correctamente cada varietal al filtrar varias veces. 
     vinos = JSON.parse(localStorage.getItem("vinos"));
     const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
     vinos = vinosVarietal
@@ -207,39 +203,39 @@ precioFiltro.addEventListener("click", (e) => {
 
 
 //Filtros del footer
-malbecFooter.addEventListener("click", (e) => { 
-        vinos = JSON.parse(localStorage.getItem("vinos"));
-        const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
-        vinos = vinosVarietal
-        if (e.target.innerHTML === "Malbec") {
-            crearCards(vinosVarietal);
-        }
-    });
+malbecFooter.addEventListener("click", (e) => {
+    vinos = JSON.parse(localStorage.getItem("vinos"));
+    const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
+    vinos = vinosVarietal
+    if (e.target.innerHTML === "Malbec") {
+        crearCards(vinosVarietal);
+    }
+});
 
 
-syrahFooter.addEventListener("click", (e) => { 
-        vinos = JSON.parse(localStorage.getItem("vinos"));
-        const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
-        vinos = vinosVarietal
-        if (e.target.innerHTML === "Syrah") {
-            crearCards(vinosVarietal);
-        }
-    });
+syrahFooter.addEventListener("click", (e) => {
+    vinos = JSON.parse(localStorage.getItem("vinos"));
+    const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
+    vinos = vinosVarietal
+    if (e.target.innerHTML === "Syrah") {
+        crearCards(vinosVarietal);
+    }
+});
 
 
-cabernetFooter.addEventListener("click", (e) => { 
-        vinos = JSON.parse(localStorage.getItem("vinos"));
-        const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
-        vinos = vinosVarietal
-        if (e.target.innerHTML === "Cabernet") {
-            crearCards(vinosVarietal);
-        }
-    });
+cabernetFooter.addEventListener("click", (e) => {
+    vinos = JSON.parse(localStorage.getItem("vinos"));
+    const vinosVarietal = vinos.filter((vino) => vino.varietal.toLowerCase().includes(e.target.innerHTML.toLowerCase()))
+    vinos = vinosVarietal
+    if (e.target.innerHTML === "Cabernet") {
+        crearCards(vinosVarietal);
+    }
+});
 
 
 //Botón para subir al top (útil para la versión mobile)
 // Función que hace que aparezca cuando se scrollea 20px
-window.onscroll = function() {funcionScroll()};
+window.onscroll = function () { funcionScroll() };
 
 function funcionScroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -247,12 +243,12 @@ function funcionScroll() {
     } else {
         btnTop.style.display = "none";
     }
-  }
+}
 
-  // Función que hace que suba hacia arriba.
-  function funcionSubir() {
-      document.body.scrollTop = 0; // Safari
-      document.documentElement.scrollTop = 0; // Chrome, Firefox, IE, Opera
-    }
+// Función que hace que suba hacia arriba.
+function funcionSubir() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Chrome, Firefox, IE, Opera
+}
 
-    btnTop.addEventListener("click", () => funcionSubir())
+btnTop.addEventListener("click", () => funcionSubir())

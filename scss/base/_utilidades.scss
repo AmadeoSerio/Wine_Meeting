@@ -35,3 +35,27 @@
         transform: scale(100%);
     }
 }
+
+@keyframes camiEntrada {
+    0% {
+        transform: translateX(-20vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes estefiEntrada {
+    0% {
+        transform: translateX(20vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -17,6 +17,8 @@ body {
   min-height: 100vh;
   font-family: $main-font;
   background-color: #151e24;
+  background-image: linear-gradient(to top, #000000be, #000000be), url("../images/fondo.jpg");
+  background-size: 35rem;
 }
 
 .swal2-popup {
