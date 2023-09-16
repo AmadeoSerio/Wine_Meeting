@@ -1,36 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// PONER FUNCIONES ANTES DE LLAMARLA!!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//ME FALTA EL SEO, EL MAP. Y TAMBIÉN EL FAVICON
 
 
 

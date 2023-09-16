@@ -22,6 +22,11 @@ main {
     }
 
     .cartas {
+        animation-name: cartas;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: .7s;
+
         @include flexbox (column, center, flex-start);
         padding: 1rem;
         background-color: #05121b;
@@ -58,29 +63,26 @@ main {
         }
 
         button {
-            background-color: #05121b00;
-            color: #eeee;
+            background-color: #24cf7f;
+            color: black;
             font-size: 1rem;
-            border: 0;
+            font-weight: bolder;
+            border: none; 
+            padding: 1rem;
+            border-radius: 1rem;
             align-self: center;
             margin-top: 1rem;
             transition: 1s;
 
             &:hover {
-                transform: scale(1.3);
+                transform: scale(1.18);
                 cursor: pointer;
             }
+
+            i{
+                color: black;
+            }
         }
-
-        ;
-
-        i {
-            background-color: #113e5e00;
-            color: #eeee;
-            font-size: 1.8rem;
-        }
-
-        ;
     }
 
     .errorServidor {
@@ -176,6 +178,11 @@ main {
     }
 
     .contacto {
+        animation-name: camiEntrada;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: .7s;
+
         .formulario{
         margin-top: -1rem;
         padding: 2rem;

@@ -21,10 +21,29 @@ body {
 
 .swal2-popup {
   border-radius: 1rem;
+  top: 4rem;
+  right: 8rem;
+  width: 21rem;
+}
+.swal2-popup h1 {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.726);
+}
+.swal2-popup h3 {
+  font-weight: bolder;
+}
+.swal2-popup p {
+  color: #00b862;
+  margin-bottom: 0rem;
+}
+
+.swal2-actions {
+  margin-top: 1rem;
 }
 
 .swal2-image {
   border-radius: 1rem;
+  height: 20rem;
 }
 
 div#swal2-html-container {
@@ -41,14 +60,25 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   font-weight: bolder;
 }
 
-@keyframes logoCarritoLleno {
+@keyframes logoCarritoLlenoColores {
   0% {
+    background-color: #00b862;
     transform: scale(100%);
   }
+  25% {
+    background-color: #28f897;
+  }
   50% {
+    background-color: #28f897;
+    color: black;
     transform: scale(110%);
   }
+  75% {
+    background-color: #28f897;
+    color: black;
+  }
   100% {
+    background-color: #00b862;
     transform: scale(100%);
   }
 }
@@ -72,24 +102,49 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
     opacity: 1;
   }
 }
+@keyframes cartas {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .navbar {
   background: #44021b;
   box-shadow: 9px 11px 30px rgb(0, 0, 0);
 }
-.navbar .btnVacio button {
+.navbar .carritoTitulo {
+  position: fixed;
+  top: 5rem;
+  right: 2.5rem;
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .carritoTitulo button {
   color: white;
   background-color: gray;
   border: 0;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
 }
-.navbar .btnVacio button:active {
+.navbar .carritoTitulo button i {
+  font-size: 2rem;
+}
+.navbar .carritoTitulo button:active {
   background-color: white;
   color: #630229;
 }
 .navbar .btnLleno button {
-  color: white;
+  color: black;
   background-color: #00b862;
+  border-radius: 100%;
   border: 0;
-  animation: logoCarritoLleno 1s infinite linear;
+  animation: logoCarritoLlenoColores 2s infinite ease-in-out;
 }
 .navbar .btnLleno button:active {
   background-color: white;
@@ -290,6 +345,10 @@ main .mostrador {
   margin-top: 3rem;
 }
 main .cartas {
+  animation-name: cartas;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.7s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -338,22 +397,23 @@ main .cartas img {
   border-radius: 1rem;
 }
 main .cartas button {
-  background-color: rgba(5, 18, 27, 0);
-  color: rgba(238, 238, 238, 0.9333333333);
+  background-color: #24cf7f;
+  color: black;
   font-size: 1rem;
-  border: 0;
+  font-weight: bolder;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
   align-self: center;
   margin-top: 1rem;
   transition: 1s;
 }
 main .cartas button:hover {
-  transform: scale(1.3);
+  transform: scale(1.18);
   cursor: pointer;
 }
-main .cartas i {
-  background-color: rgba(17, 62, 94, 0);
-  color: rgba(238, 238, 238, 0.9333333333);
-  font-size: 1.8rem;
+main .cartas button i {
+  color: black;
 }
 main .errorServidor h1 {
   color: white;
@@ -458,6 +518,12 @@ main .quienesSomos .estefi img {
   object-fit: cover;
   border-radius: 2rem;
   object-position: left;
+}
+main .contacto {
+  animation-name: camiEntrada;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.7s;
 }
 main .contacto .formulario {
   margin-top: -1rem;

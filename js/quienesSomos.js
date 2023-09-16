@@ -5,12 +5,13 @@ import { restablecerFiltro } from "./inicio.js"
 const quienesSomos = document.getElementById("quienesSomos");
 
 
+//funcion que dibuja el quines somos
 const dibujarQuienesSomos = () => {
 
-let div = document.createElement("div");
-cartas.innerHTML = "";
-div.className = "quienesSomos"
-div.innerHTML = `
+    let div = document.createElement("div");
+    cartas.innerHTML = "";
+    div.className = "quienesSomos"
+    div.innerHTML = `
 <div class="cami container">
 <div>
 <h2>Cami Barrionuevo</h2>
@@ -28,10 +29,12 @@ div.innerHTML = `
 </div>
 
 `
-cartas.append(div);
+    cartas.append(div);
 };
 
+//evento que se genera con el click y dibuja quienes somos
 quienesSomos.addEventListener("click", () => {
-dibujarQuienesSomos()
-restablecerFiltro.removeAttribute("href");
+    dibujarQuienesSomos()
+    //esto quita la posibilidad de darle click a "restableces filtros" y que se recargue la página
+    restablecerFiltro.removeAttribute("href");
 });

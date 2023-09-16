@@ -2,58 +2,75 @@
     background: #44021b;
     box-shadow: 9px 11px 30px rgb(0, 0, 0);
 
-    .btnVacio {
+    .carritoTitulo {
+        position: fixed;
+        top: 5rem;
+        right: 2.5rem;
+        width: 5rem;
+        @include flexbox (column, center, center);
+
         button {
             color: white;
             background-color: gray;
             border: 0;
+            height: 5rem;
+            width: 5rem;
+            border-radius: 100%;
+            i{
+                font-size: 2rem;
+            }
 
-            &:active{
+            &:active {
                 background-color: white;
                 color: #630229;
             }
         }
-    }
+}
 
     .btnLleno {
         button {
-            color: white;
+            color: black;
             background-color: #00b862;
+            border-radius: 100%;
             border: 0;
-            animation: logoCarritoLleno 1s infinite linear;
+            animation: logoCarritoLlenoColores 2s infinite ease-in-out;
 
-            &:active{
+            &:active {
                 background-color: white;
                 color: #630229;
             }
         }
     }
 
-    .dropdown-menu{
-        li{
-            a{
-        &::selection{
-            background-color: #137dc900;
-        }
-        user-select: all;
-        &:active{
-            background-color: #00b86200;
-        }
+    .dropdown-menu {
+        li {
+            a {
+                &::selection {
+                    background-color: #137dc900;
+                }
+
+                user-select: all;
+
+                &:active {
+                    background-color: #00b86200;
+                }
             }
         }
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
     }
 
-.restablecerF{
-cursor: pointer;
-}
+    .restablecerF {
+        cursor: pointer;
+    }
 
-    .classQS{
+    .classQS {
         font-weight: bold;
         transition: .3s;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
             color: #24cf7f;
         }
@@ -78,7 +95,7 @@ cursor: pointer;
         .btn-close {
             --bs-btn-close-opacity: 1;
             --bs-btn-close-focus-shadow: none;
-            }
+        }
     }
 
     .offcanvas-body {
@@ -129,7 +146,7 @@ cursor: pointer;
                     margin-right: .5rem;
                     transition: .2s;
 
-                    &:hover{
+                    &:hover {
                         color: white;
                         transform: scale(.98)
                     }
