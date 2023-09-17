@@ -1,0 +1,241 @@
+//768
+@media only screen and (max-width:768px) {
+    .swal2-popup {
+        right: 1rem;
+        width: 15rem;
+
+        h1 {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.726);
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #00b862;
+            margin-bottom: 0rem;
+        }
+    }
+
+    .swal2-image {
+        border-radius: 1rem;
+        height: 15rem;
+    }
+
+    .offcanvas {
+    .carritoLlenoC{
+        h2{
+font-size: 1rem;
+        }
+        h3{
+font-size: 1rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+        .botonesAgregarRestar{
+            button{
+                i{
+                font-size: 1.2rem;
+            }
+            }
+        }
+    }
+    .botonComprar{
+        margin-left: 0;
+        font-size: .9rem;
+        width: 7rem;
+    }
+    .botonVaciar{
+        font-size: .9rem;
+        width: 7rem;
+    }
+    .totales {
+        td{
+font-size: 1rem;
+        }
+        th{
+            font-size: 1rem;
+        }
+    }
+}
+
+    main {
+        .btnVacio {
+            button {
+                height: 4rem;
+                width: 4rem;
+
+                i {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        .btnLleno {
+            button {
+                height: 4rem;
+                width: 4rem;
+
+                i {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        .cartas {
+            width: 10rem;
+            height: 33rem;
+
+            h2 {
+                @include titulos (white, 1rem, left, none, 0);
+            }
+
+            h3 {
+                @include titulos($secundary-color, .8rem, left, none, 0);
+                font-weight: bolder;
+            }
+
+            p {
+                @include titulos (white, 1rem, left, none, .2rem);
+            }
+
+            img {
+                @include imagenes (8rem, 18rem, cover);
+            }
+
+            button {
+                font-size: .7rem;
+
+                i {
+                    color: black;
+                    font-size: .7rem;
+                }
+            }
+        }
+
+        .quienesSomos {
+            .cami {
+                padding: 1rem;
+                border-radius: 2rem;
+                @include flexbox (column-reverse, center, center);
+                gap: 1rem;
+                margin-bottom: 3rem;
+                margin-top: 0rem;
+
+                h2 {
+                    @include titulos (white, 1.5rem, left, none, 0rem)
+                }
+
+                p {
+                    @include titulos (white, 1rem, justify, none, 0rem)
+                }
+
+                img {
+                    @include imagenes (16rem, 16rem, cover);
+                    border-radius: 2rem;
+                }
+            }
+
+            .estefi {
+                padding: 1rem;
+                border-radius: 2rem;
+                @include flexbox (column, center, center);
+                gap: 1rem;
+                margin-bottom: 3rem;
+                margin-top: 0rem;
+
+                h2 {
+                    @include titulos (white, 1.5rem, left, none, 0rem)
+                }
+
+                p {
+                    @include titulos (white, 1rem, justify, none, 0rem)
+                }
+
+                img {
+                    @include imagenes (16rem, 16rem, cover);
+                    border-radius: 2rem;
+                }
+            }
+        }
+
+        .contacto {
+            @include flexbox (column, center, center);
+
+            .formulario {
+                padding: 1rem;
+
+                h2 {
+                    @include titulos (rgb(255, 255, 255), 2rem, center, none, 0rem);
+                }
+
+                .formName {
+                    font-size: 1rem;
+                }
+
+                .formNameLabel {
+                    width: 20rem;
+                    font-size: 1rem;
+                }
+
+                .formMail {
+                    font-size: 1rem;
+                }
+
+                .formMailLabel {
+                    width: 20rem;
+                    font-size: 1rem;
+                }
+
+                .formSubject {
+                    font-size: 1rem;
+                }
+
+                .formSubjectLabel {
+                    width: 20rem;
+                    font-size: 1rem;
+                }
+
+                .formText {
+                    font-size: 1rem;
+                }
+
+                .formTextLabel {
+                    width: 20rem;
+                    font-size: 1rem;
+                }
+
+                .formEnviar {
+                    font-size: 1rem;
+                }
+            }
+
+            .contactoFooter {
+                margin-top: 1.8rem;
+                color: white;
+                font-size: 1rem;
+                font-weight: bold;
+                text-align: center;
+
+                i {
+
+                    padding: 1.9rem;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    transition: .6s;
+                    color: $secundary-color;
+
+                    &:hover {
+                        color: #d61861;
+                        transform: scale(1.3);
+                    }
+                }
+            }
+        }
+    }
+}

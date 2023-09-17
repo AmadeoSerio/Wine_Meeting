@@ -1,6 +1,67 @@
 main {
     margin-bottom: auto;
 
+    .btnVacio {
+        button {
+            color: white;
+            background-color: gray;
+            border: 0;
+            height: 5rem;
+            width: 5rem;
+            border-radius: 100%;
+            position: fixed;
+            top: 5rem;
+            right: 2.5rem;
+            width: 5rem;
+            transition: .6s;
+            z-index: 1;
+
+            i {
+                font-size: 2rem;
+            }
+
+            &:hover {
+                color: white;
+                background-color: gray;
+
+            }
+
+            &:active {
+                background-color: white;
+                color: #630229;
+            }
+        }
+    }
+
+    .btnLleno {
+        .btn:first-child:active {
+            color: black;
+        }
+
+        button {
+            color: black;
+            background-color: #00b862;
+            border-radius: 100%;
+            border: 0;
+            height: 5rem;
+            width: 5rem;
+            position: fixed;
+            top: 5rem;
+            right: 2.5rem;
+            width: 5rem;
+            animation: logoCarritoLlenoColores 2s infinite ease-in-out;
+            z-index: 1;
+
+            i {
+                font-size: 2rem;
+            }
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
+
     .titulo {
         h1 {
             margin-top: 5rem;
@@ -48,7 +109,7 @@ main {
         }
 
         h3 {
-            @include titulos(#24cf7f, 1.2rem, left, none, 0);
+            @include titulos($secundary-color, 1.2rem, left, none, 0);
             font-weight: bolder;
         }
 
@@ -63,11 +124,11 @@ main {
         }
 
         button {
-            background-color: #24cf7f;
+            background-color: $secundary-color;
             color: black;
             font-size: 1rem;
             font-weight: bolder;
-            border: none; 
+            border: none;
             padding: 1rem;
             border-radius: 1rem;
             align-self: center;
@@ -79,7 +140,7 @@ main {
                 cursor: pointer;
             }
 
-            i{
+            i {
                 color: black;
             }
         }
@@ -98,8 +159,9 @@ main {
         }
     }
 
-    .sinVinoEncontrado{
+    .sinVinoEncontrado {
         @include flexbox (column, center, center);
+
         h2 {
             color: white;
             margin-top: 5rem;
@@ -107,6 +169,7 @@ main {
             font-weight: bolder;
             font-size: 2.3rem
         }
+
         h3 {
             color: white;
             margin-top: 1rem;
@@ -114,7 +177,8 @@ main {
             font-weight: bolder;
             font-size: 2.3rem
         }
-        img{
+
+        img {
             height: 20rem;
         }
     }
@@ -126,7 +190,7 @@ main {
             animation-timing-function: ease-in;
             animation-duration: .7s;
 
-            background: linear-gradient(to bottom left, #44021b, #00000000);
+            background: linear-gradient(to bottom left, $main-color, #00000000);
             padding: 2rem;
             border-radius: 2rem;
             @include flexbox (row, center, stretch);
@@ -154,7 +218,7 @@ main {
             animation-timing-function: ease-in;
             animation-duration: .7s;
 
-            background: linear-gradient(to bottom right, #44021b, #00000000);
+            background: linear-gradient(to bottom right, $main-color, #00000000);
             padding: 2rem;
             border-radius: 2rem;
             margin-bottom: 2rem;
@@ -183,132 +247,137 @@ main {
         animation-timing-function: ease-in;
         animation-duration: .7s;
 
-        .formulario{
-        margin-top: -1rem;
-        padding: 2rem;
-        background: linear-gradient(to bottom right, #44021b, #00000000);
-        border-radius: 2rem;
+        .formulario {
+            margin-top: -1rem;
+            padding: 2rem;
+            background: linear-gradient(to bottom right, $main-color, #00000000);
+            border-radius: 2rem;
 
-        input:-webkit-autofill {
-            -webkit-text-fill-color: #eeee;
-            -webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
-            transition: background-color 5000s ease-in-out 0s;
-        }
+            input:-webkit-autofill {
+                -webkit-text-fill-color: #eeee;
+                -webkit-box-shadow: 0 0 0px 1000px #00000000 inset;
+                transition: background-color 5000s ease-in-out 0s;
+            }
 
-        h2 {
-            @include titulos (rgb(255, 255, 255), 4rem, center, none, 0rem);
-        }
+            h2 {
+                @include titulos (rgb(255, 255, 255), 4rem, center, none, 0rem);
+            }
 
-        .formName {
-            color: #24cf7f;
-            font-size: 1.3rem;
-            @include flexbox (column, center, flex-start);
-        }
+            .formName {
+                color: $secundary-color;
+                font-size: 1.3rem;
+                @include flexbox (column, center, flex-start);
+            }
 
-        .formNameLabel {
-            width: 30rem;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 1rem;
-            padding: .5rem;
-            background-color: #00000000;
-            color: white;
-            border: solid #24cf7f;
-            &:focus-visible{
-                border: .2rem solid rgba(255, 217, 0, 0);
+            .formNameLabel {
+                width: 30rem;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 1rem;
+                padding: .5rem;
+                background-color: #00000000;
+                color: white;
+                border: solid $secundary-color;
+
+                &:focus-visible {
+                    border: .2rem solid rgba(255, 217, 0, 0);
+                }
+            }
+
+            .formMail {
+                color: $secundary-color;
+                font-size: 1.3rem;
+                @include flexbox (column, center, flex-start);
+            }
+
+            .formMailLabel {
+                width: 30rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                border-radius: 1rem;
+                padding: .5rem;
+                background-color: #00000000;
+                color: white;
+                border: solid $secundary-color;
+
+                &:focus-visible {
+                    border: .2rem solid rgba(255, 217, 0, 0);
+                }
+            }
+
+            .formSubject {
+                color: $secundary-color;
+                font-size: 1.3rem;
+                @include flexbox (column, center, flex-start);
+            }
+
+            .formSubjectLabel {
+                width: 30rem;
+                font-weight: 2rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                border-radius: 1rem;
+                padding: .5rem;
+                background-color: #00000000;
+                color: white;
+                border: solid $secundary-color;
+
+                &:focus-visible {
+                    border: .2rem solid rgba(255, 217, 0, 0);
+                }
+            }
+
+            .formText {
+                color: $secundary-color;
+                font-size: 1.3rem;
+                @include flexbox (column, center, flex-start);
+            }
+
+            .formTextLabel {
+                width: 30rem;
+                font-weight: 2rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                border-radius: 1rem;
+                padding: .5rem;
+                background-color: #00000000;
+                color: white;
+                border: solid $secundary-color;
+
+                &:focus-visible {
+                    border: .2rem solid rgba(255, 217, 0, 0);
+                }
+            }
+
+            .formEnviar {
+                font-size: 1rem;
+                @include flexbox (row-reverse, center, center);
+                padding: .5rem;
+                border-radius: 1rem;
+                background-color: $secundary-color;
+                border: 0;
+                transition: .6s;
+
+                &:hover {
+                    background-color: #eeee;
+                }
             }
         }
 
-        .formMail {
-            color: #24cf7f;
-            font-size: 1.3rem;
-            @include flexbox (column, center, flex-start);
-        }
-
-        .formMailLabel {
-            width: 30rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            border-radius: 1rem;
-            padding: .5rem;
-            background-color: #00000000;
-            color: white;
-            border: solid #24cf7f;
-            &:focus-visible{
-                border: .2rem solid rgba(255, 217, 0, 0);
-            }
-        }
-
-        .formSubject {
-            color: #24cf7f;
-            font-size: 1.3rem;
-            @include flexbox (column, center, flex-start);
-        }
-
-        .formSubjectLabel {
-            width: 30rem;
-            font-weight: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            border-radius: 1rem;
-            padding: .5rem;
-            background-color: #00000000;
-            color: white;
-            border: solid #24cf7f;
-            &:focus-visible{
-                border: .2rem solid rgba(255, 217, 0, 0);
-            }
-        }
-
-        .formText {
-            color: #24cf7f;
-            font-size: 1.3rem;
-            @include flexbox (column, center, flex-start);
-        }
-
-        .formTextLabel {
-            width: 30rem;
-            font-weight: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            border-radius: 1rem;
-            padding: .5rem;
-            background-color: #00000000;
-            color: white;
-            border: solid #24cf7f;
-            &:focus-visible{
-                border: .2rem solid rgba(255, 217, 0, 0);
-            }
-        }
-
-        .formEnviar {
-            font-size: 1rem;
-            @include flexbox (row-reverse, center, center);
-            padding: .5rem;
-            border-radius: 1rem;
-            background-color: #24cf7f;
-            border: 0;
-            transition: .6s;
-
-            &:hover{
-                background-color: #eeee;
-            }
-        }
-    }
-
-        .contactoFooter{
+        .contactoFooter {
             margin-top: 1.8rem;
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
 
-            i{
+            i {
                 padding: 1rem;
                 font-size: 2rem;
                 cursor: pointer;
                 transition: .6s;
-                color: #24cf7f;
-                &:hover{
+                color: $secundary-color;
+
+                &:hover {
                     color: #d61861;
                     transform: scale(1.3);
                 }
@@ -323,7 +392,7 @@ main {
         right: 2.5rem;
         border: none;
         outline: none;
-        background-color: #24cf7f;
+        background-color: $secundary-color;
         color: black;
         cursor: pointer;
         height: 3.3rem;
@@ -331,10 +400,10 @@ main {
         border-radius: 1rem;
         font-size: 1.5rem;
         transition: .6s;
-        
+
         &:hover {
-          background-color: #eeee;
+            background-color: #eeee;
         }
-      }
-      
+    }
+
 }

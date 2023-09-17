@@ -66,6 +66,8 @@ contacto.addEventListener("click", () => {
             if (response.ok) {
                 $form.reset();
                 Swal.fire({
+                    customClass: {
+                        popup: 'popup-class'},
                     title: 'Gracias por escribirme. Pronto me pondré en contacto',
                     showCancelButton: false,
                     confirmButtonColor: '#3085d6',

@@ -37,6 +37,11 @@ body {
   margin-bottom: 0rem;
 }
 
+.popup-class {
+  top: 0rem;
+  right: 0rem;
+}
+
 .swal2-actions {
   margin-top: 1rem;
 }
@@ -115,40 +120,10 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   box-shadow: 9px 11px 30px rgb(0, 0, 0);
 }
 .navbar .carritoTitulo {
-  position: fixed;
-  top: 5rem;
-  right: 2.5rem;
-  width: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.navbar .carritoTitulo button {
-  color: white;
-  background-color: gray;
-  border: 0;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 100%;
-}
-.navbar .carritoTitulo button i {
-  font-size: 2rem;
-}
-.navbar .carritoTitulo button:active {
-  background-color: white;
-  color: #630229;
-}
-.navbar .btnLleno button {
-  color: black;
-  background-color: #00b862;
-  border-radius: 100%;
-  border: 0;
-  animation: logoCarritoLlenoColores 2s infinite ease-in-out;
-}
-.navbar .btnLleno button:active {
-  background-color: white;
-  color: #630229;
 }
 .navbar .dropdown-menu li a {
   user-select: all;
@@ -268,7 +243,7 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   border-radius: 2rem;
   width: 9rem;
   font-weight: bolder;
-  transition: 0.2s;
+  transition: 0.3s;
   background-color: #24cf7f;
   color: black;
 }
@@ -285,7 +260,7 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   border-radius: 2rem;
   width: 9rem;
   font-weight: bolder;
-  transition: 0.2s;
+  transition: 0.3s;
   background-color: #c0c0c0;
 }
 .offcanvas .botonVaciar:hover {
@@ -317,6 +292,54 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
 
 main {
   margin-bottom: auto;
+}
+main .btnVacio button {
+  color: white;
+  background-color: gray;
+  border: 0;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+  position: fixed;
+  top: 5rem;
+  right: 2.5rem;
+  width: 5rem;
+  transition: 0.6s;
+  z-index: 1;
+}
+main .btnVacio button i {
+  font-size: 2rem;
+}
+main .btnVacio button:hover {
+  color: white;
+  background-color: gray;
+}
+main .btnVacio button:active {
+  background-color: white;
+  color: #630229;
+}
+main .btnLleno .btn:first-child:active {
+  color: black;
+}
+main .btnLleno button {
+  color: black;
+  background-color: #00b862;
+  border-radius: 100%;
+  border: 0;
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  top: 5rem;
+  right: 2.5rem;
+  width: 5rem;
+  animation: logoCarritoLlenoColores 2s infinite ease-in-out;
+  z-index: 1;
+}
+main .btnLleno button i {
+  font-size: 2rem;
+}
+main .btnLleno button:hover {
+  color: black;
 }
 main .titulo h1 {
   margin-top: 5rem;
@@ -679,6 +702,236 @@ main .btnTopClass {
 }
 main .btnTopClass:hover {
   background-color: rgba(238, 238, 238, 0.9333333333);
+}
+
+@media only screen and (max-width: 768px) {
+  .swal2-popup {
+    right: 1rem;
+    width: 15rem;
+  }
+  .swal2-popup h1 {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.726);
+  }
+  .swal2-popup h3 {
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+  .swal2-popup p {
+    font-size: 1rem;
+    color: #00b862;
+    margin-bottom: 0rem;
+  }
+  .swal2-image {
+    border-radius: 1rem;
+    height: 15rem;
+  }
+  .offcanvas .carritoLlenoC h2 {
+    font-size: 1rem;
+  }
+  .offcanvas .carritoLlenoC h3 {
+    font-size: 1rem;
+  }
+  .offcanvas .carritoLlenoC p {
+    font-size: 1rem;
+  }
+  .offcanvas .carritoLlenoC .botonesAgregarRestar button i {
+    font-size: 1.2rem;
+  }
+  .offcanvas .botonComprar {
+    margin-left: 0;
+    font-size: 0.9rem;
+    width: 7rem;
+  }
+  .offcanvas .botonVaciar {
+    font-size: 0.9rem;
+    width: 7rem;
+  }
+  .offcanvas .totales td {
+    font-size: 1rem;
+  }
+  .offcanvas .totales th {
+    font-size: 1rem;
+  }
+  main .btnVacio button {
+    height: 4rem;
+    width: 4rem;
+  }
+  main .btnVacio button i {
+    font-size: 1.8rem;
+  }
+  main .btnLleno button {
+    height: 4rem;
+    width: 4rem;
+  }
+  main .btnLleno button i {
+    font-size: 1.8rem;
+  }
+  main .cartas {
+    width: 10rem;
+    height: 33rem;
+  }
+  main .cartas h2 {
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  main .cartas h3 {
+    color: #24cf7f;
+    font-size: 0.8rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: bolder;
+  }
+  main .cartas p {
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0.2rem;
+  }
+  main .cartas img {
+    width: 8rem;
+    height: 18rem;
+    object-fit: cover;
+  }
+  main .cartas button {
+    font-size: 0.7rem;
+  }
+  main .cartas button i {
+    color: black;
+    font-size: 0.7rem;
+  }
+  main .quienesSomos .cami {
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 0rem;
+  }
+  main .quienesSomos .cami h2 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0rem;
+  }
+  main .quienesSomos .cami p {
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+    text-transform: none;
+    letter-spacing: 0rem;
+  }
+  main .quienesSomos .cami img {
+    width: 16rem;
+    height: 16rem;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+  main .quienesSomos .estefi {
+    padding: 1rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 0rem;
+  }
+  main .quienesSomos .estefi h2 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0rem;
+  }
+  main .quienesSomos .estefi p {
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+    text-transform: none;
+    letter-spacing: 0rem;
+  }
+  main .quienesSomos .estefi img {
+    width: 16rem;
+    height: 16rem;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+  main .contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main .contacto .formulario {
+    padding: 1rem;
+  }
+  main .contacto .formulario h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 0rem;
+  }
+  main .contacto .formulario .formName {
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formNameLabel {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formMail {
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formMailLabel {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formSubject {
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formSubjectLabel {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formText {
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formTextLabel {
+    width: 20rem;
+    font-size: 1rem;
+  }
+  main .contacto .formulario .formEnviar {
+    font-size: 1rem;
+  }
+  main .contacto .contactoFooter {
+    margin-top: 1.8rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  main .contacto .contactoFooter i {
+    padding: 1.9rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.6s;
+    color: #24cf7f;
+  }
+  main .contacto .contactoFooter i:hover {
+    color: #d61861;
+    transform: scale(1.3);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

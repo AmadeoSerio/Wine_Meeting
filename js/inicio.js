@@ -1,13 +1,3 @@
-//ME FALTA EL SEO, EL MAP. Y TAMBIÉN EL FAVICON
-
-
-
-
-
-
-
-
-
 import { carritoVacioAparece } from "./carrito.js";
 import { agregarCarrito } from "./carrito.js";
 import { carritoLlenoAparece } from "./carrito.js";

@@ -10,7 +10,7 @@ const dibujarQuienesSomos = () => {
 
     let div = document.createElement("div");
     cartas.innerHTML = "";
-    div.className = "quienesSomos"
+    div.className = "quienesSomos container"
     div.innerHTML = `
 <div class="cami container">
 <div>

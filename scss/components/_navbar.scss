@@ -1,46 +1,10 @@
 .navbar {
-    background: #44021b;
+    background: $main-color;
     box-shadow: 9px 11px 30px rgb(0, 0, 0);
 
     .carritoTitulo {
-        position: fixed;
-        top: 5rem;
-        right: 2.5rem;
-        width: 5rem;
         @include flexbox (column, center, center);
-
-        button {
-            color: white;
-            background-color: gray;
-            border: 0;
-            height: 5rem;
-            width: 5rem;
-            border-radius: 100%;
-            i{
-                font-size: 2rem;
-            }
-
-            &:active {
-                background-color: white;
-                color: #630229;
-            }
-        }
 }
-
-    .btnLleno {
-        button {
-            color: black;
-            background-color: #00b862;
-            border-radius: 100%;
-            border: 0;
-            animation: logoCarritoLlenoColores 2s infinite ease-in-out;
-
-            &:active {
-                background-color: white;
-                color: #630229;
-            }
-        }
-    }
 
     .dropdown-menu {
         li {
@@ -72,7 +36,7 @@
 
         &:hover {
             cursor: pointer;
-            color: #24cf7f;
+            color: $secundary-color;
         }
     }
 }
@@ -121,7 +85,7 @@
         h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: #24cf7f;
+            color: $secundary-color;
             font-weight: bold;
             width: 6rem;
         }
@@ -141,7 +105,7 @@
                 background-color: #05121b00;
 
                 i {
-                    color: #24cf7f;
+                    color: $secundary-color;
                     font-size: 1.8rem;
                     margin-right: .5rem;
                     transition: .2s;
@@ -168,7 +132,7 @@
         }
 
         th {
-            color: #24cf7f;
+            color: $secundary-color;
             font-weight: bolder;
             font-size: 1.4rem;
 
@@ -185,8 +149,8 @@
         border-radius: 2rem;
         width: 9rem;
         font-weight: bolder;
-        transition: .2s;
-        background-color: #24cf7f;
+        transition: .3s;
+        background-color: $secundary-color;
         color: black;
 
         &:hover {
@@ -204,7 +168,7 @@
         border-radius: 2rem;
         width: 9rem;
         font-weight: bolder;
-        transition: .2s;
+        transition: .3s;
         background-color: #c0c0c0;
 
         &:hover {

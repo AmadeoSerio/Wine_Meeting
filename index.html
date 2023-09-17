@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/wineMeetingFavicon.jpg" type="image/x-icon">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,7 +12,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Wine Meeting</title>
+    <!-- Primary Meta Tags -->
+<title>Wine Meeting</title>
+<meta name="title" content="Wine Meeting" />
+<meta name="description" content="Sitio de ventas de vinos en Mendoza. Podés comprar el que quieras siempre que lo tengamos en stock. Esperamos tu contacto para que podamos mejorar, tu opinión no importa." />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://amadeoserio.github.io/Wine_Meeting/" />
+<meta property="og:title" content="Wine Meeting" />
+<meta property="og:description" content="Sitio de ventas de vinos en Mendoza. Podés comprar el que quieras siempre que lo tengamos en stock. Esperamos tu contacto para que podamos mejorar, tu opinión no importa." />
+<meta property="og:image" content="./images/noSeEncontro.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://amadeoserio.github.io/Wine_Meeting/" />
+<meta property="twitter:title" content="Wine Meeting" />
+<meta property="twitter:description" content="Sitio de ventas de vinos en Mendoza. Podés comprar el que quieras siempre que lo tengamos en stock. Esperamos tu contacto para que podamos mejorar, tu opinión no importa." />
+<meta property="twitter:image" content="./images/noSeEncontro.png" />
 </head>
 
 <body>
@@ -44,10 +62,6 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item">Todos</a></li>
-                                <!-- <hr class="dropdown-divider"> -->
-                                <!-- <li><a class="dropdown-item" href="#">Especias</a></li> -->
-                                <!-- <hr class="dropdown-divider"> -->
-                                <!-- <li><a class="dropdown-item" href="#">PROMOS</a></li> -->
                             </ul>
                         </li>
 
@@ -72,8 +86,6 @@
                             <a class="nav-link active classQS" aria-current="page" id="contacto">Contacto</a>
                         </li>
                     </ul>
-                    <div class="btnVacio" id="botonCarritoCanvasDivVacio"></div>
-                    <div class="btnLleno" id="botonCarritoCanvasDivLleno"></div>
                     <form class="d-flex" id="buscador" role="search">
                         <input class="form-control me-2" placeholder="Buscar por nombre" aria-label="Search">
                     </form>
@@ -89,6 +101,9 @@
             <p>Venta de vinos y destilados</p>
         </div>
 
+        <div class="btnVacio" id="botonCarritoCanvasDivVacio"></div>
+        <div class="btnLleno" id="botonCarritoCanvasDivLleno"></div>
+
         <div id="carritoVacio"></div>
 
         <div id="carritoLlenoDiv" class="container carrito">
@@ -97,7 +112,6 @@
         <div id="cartas" class="container mostrador"></div>
 
         <button class="btnTopClass" id="btnTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
-
     </main>
 
     <footer class="footer">
@@ -109,14 +123,16 @@
         <p class="text-center">© 2023 Wine meeting.</p>
     </footer>
 
+<!-- Script de los íconos -->
     <script src="https://kit.fontawesome.com/7502029dfc.js" crossorigin="anonymous"></script>
+<!-- Script de bootstraps -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+<!-- Script de sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
+<!-- Script de los JS que están vinculados y funcionando -->
     <script type="module" src="./js/inicio.js"></script>
 
     <script type="module" src="./js/carrito.js"></script>
@@ -124,7 +140,6 @@
     <script type="module" src="./js/quienesSomos.js"></script>
 
     <script type="module" src="./js/contacto.js"></script>
-
 
 </body>
 
